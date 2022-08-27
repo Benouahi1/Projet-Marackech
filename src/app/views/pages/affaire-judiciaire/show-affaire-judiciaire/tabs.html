@@ -1,0 +1,139 @@
+<!-- begin:: Content -->
+<div class="kt-container  kt-grid__item kt-grid__item--fluid">
+    <div class="row">
+        <div class="col-lg-12">
+            <div *ngIf="details" class="kt-portlet portlet-1">
+                <div class="kt-portlet__head kt-bg-portlet-2">
+                    <div class="kt-portlet__head-label">
+                        <span class="kt-portlet__head-icon">
+							<i class="fas fa-address-card"></i>
+						</span>
+                        <h3 class="kt-portlet__head-title kt-font-inverse-brand">
+                            {{ 'PAGES.ASSOCIATION.TITRE_SHOW' | translate }}
+                        </h3>
+                    </div>
+                </div>
+                <!-- *ngIf="details" -->
+                <div class="kt-portlet__body">
+                    <!-- BEGIN DETAILS ASSOCIATION -->
+                    <div class="row">
+                        <div class="col-md-12 show_port">
+                            <table class="table pj" width="100%">
+                                <tbody>
+                                    <tr>
+                                        <th>{{ 'PAGES.ASSOCIATION.NUM' | translate }} :</th>
+                                        <td class="donnee_show">{{details.id}}</td>
+                                        <th>{{ 'PAGES.ASSOCIATION.NOM' | translate }} :</th>
+                                        <td class="donnee_show">{{details.nom}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>{{ 'PAGES.ASSOCIATION.DATE_CREATION' | translate }} :</th>
+                                        <td class="donnee_show">{{details.dateCreation | date:'dd/MM/yyyy'}}</td>
+                                        <th>{{ 'PAGES.ASSOCIATION.OBJECTIF' | translate }} :</th>
+                                        <td class="donnee_show">{{details.objectifs}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>{{ 'PAGES.ASSOCIATION.NOM_PRESIDENT' | translate }} :</th>
+                                        <td class="donnee_show">{{details.nomPresident}}</td>
+                                        <th>{{ 'PAGES.ASSOCIATION.VILLE' | translate }} :</th>
+                                        <td class="donnee_show">{{details.villeActivite}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <!-- BEGIN  ASSOCIATION 360 -->
+                            <div _ngcontent-idd-c40="" class="kt-separator kt-separator--dashed"></div>
+                            <mat-form-field>
+                                <mat-label>Selected tab index</mat-label>
+                                <input matInput type="number" [formControl]="selected">
+                            </mat-form-field>
+
+                            <!-- ************************************************************************ -->
+                            <mat-tab-group dynamicHeight [selectedIndex]="selected.value" (selectedIndexChange)="selected.setValue($event)">
+                                <!-- SUBVENTION TAB -->
+                                <mat-tab label="{{ 'PAGES.ASSOCIATION.TAB_SUBVENTION' | translate }}">
+                                    <div *ngIf="selected.value==0">
+                                        <kt-tab-subvention></kt-tab-subvention>
+                                    </div>
+                                </mat-tab>
+                                <!-- HEBERGEMENT TAB -->
+                                <mat-tab label="{{ 'PAGES.ASSOCIATION.TAB_HEBERGEMENT' | translate }}">
+                                    <div *ngIf="selected.value==1">
+                                        <kt-tab-hebergement></kt-tab-hebergement>
+                                    </div>
+                                </mat-tab>
+                                <!-- RESTAURATION TAB -->
+                                <mat-tab label="{{ 'PAGES.ASSOCIATION.TAB_RESTAURATION' | translate }}">
+                                    <div *ngIf="selected.value==2">
+                                        <kt-tab-restauration></kt-tab-restauration>
+                                    </div>
+                                </mat-tab>
+                                <!-- IMPRESSION TAB -->
+                                <mat-tab label="{{ 'PAGES.ASSOCIATION.TAB_IMPRESSION' | translate }}">
+                                    <div *ngIf="selected.value==3">
+                                        <kt-tab-impression></kt-tab-impression>
+                                    </div>
+                                </mat-tab>
+                            </mat-tab-group>
+                            <!-- ************************************************************************ -->
+
+
+                            <ng-container *ngIf="(asyncTabs | async) === null">
+                                Loading tabs...
+                            </ng-container>
+
+                            <mat-tab-group dynamicHeight [selectedIndex]="selected.value" (selectedIndexChange)="selected.setValue($event)">
+                                <mat-tab *ngFor="let tab of asyncTabs | async">
+                                    <ng-template mat-tab-label>{{tab.label}}</ng-template>
+                                    -- {{tab.content}} --
+
+                                    <div *ngIf="selected.value==0">
+                                        <kt-tab-status></kt-tab-status>
+                                    </div>
+
+                                    <div *ngIf="selected.value==1">
+                                        <kt-tab-avocat></kt-tab-avocat>
+                                    </div>
+
+                                    <div *ngIf="selected.value==2">
+                                        <kt-tab-jugement></kt-tab-jugement>
+                                    </div>
+
+                                    <div *ngIf="selected.value==3">
+                                        <kt-tab-evenement></kt-tab-evenement>
+                                    </div>
+                                    
+                                </mat-tab>
+                                <mat-tab label="Grid View">
+                                </mat-tab>
+                            </mat-tab-group>
+
+                            <!-- END ASSOCIATION 360-->
+                        </div>
+                    </div>
+                    <!-- END DETAILS ASSOCIATION -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end:: Content -->
+<!-- begin :: Action -->
+<div class="kt-container  kt-grid__item kt-grid__item--fluid">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="">
+                <div class="kt-portlet__head">
+                    <div class="kt-portlet__head-label" align="right">
+                        <!-- <button type="button" class="btn btn-info"><i
+								class="fa fa-print"></i>{{ 'PAGES.GENERAL.PRINT' | translate }}</button> -->
+                        <button (click)="back()" type="button" class="btn btn-label-dark"><i
+								class="flaticon2-list-2"></i>{{ 'PAGES.GENERAL.EXIT' | translate }}
+						</button>
+                    </div>
+                    <div class="espace_bloc"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

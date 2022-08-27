@@ -1,0 +1,21 @@
+<div *ngIf="page" class="mat-paginator-container">
+    <span class="mat-paginator-page-size-label text-muted">Nbr d'elements :</span>
+    <div class="dropdown mat-paginator-page-size-select my-mat-select-value">
+        <mat-form-field>
+            <mat-select [(ngModel)]="pageSize" (selectionChange)="change($event)" class="paginator">
+                <mat-option value="10">10</mat-option>
+                <mat-option value="20">20</mat-option>
+                <mat-option value="100">100</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+    <span class="align-self-center mb-1 mr-2 text-muted">
+        Affichage  {{page.pageable.offset+1}} - {{(page.numberOfElements) ? ((page.numberOfElements)*(page.number+1)) : page.numberOfElements}} / {{page.totalElements}}
+    </span>
+    <a class="btn btn-outline" [ngClass]="{'disabled': page.first }" [routerLink]="" (click)="previousPage()" matTooltip="{{ 'PAGES.GENERAL.PREVIOUS_PAGE_LABEL' | translate }}">
+        <i class="material-icons">chevron_left</i>
+    </a>
+    <a class="btn btn-outline" [ngClass]="{'disabled': page.last }" [routerLink]="" (click)="nextPage()" matTooltip="{{ 'PAGES.GENERAL.NEXT_PAGE_LABEL' | translate }}">
+        <i class="material-icons">chevron_right</i>
+    </a>
+</div>

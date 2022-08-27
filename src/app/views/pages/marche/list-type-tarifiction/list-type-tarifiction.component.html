@@ -1,0 +1,110 @@
+<div class="kt-portlet">
+    <div class="kt-portlet__head">
+        <div class="kt-portlet__head-label">
+            <h2 class="kt-portlet__head-title">
+                Liste des Tarifictions
+            </h2>
+        </div>
+        <div class="kt-portlet__head-toolbar">
+            <div class="kt-portlet__head-wrapper">
+                <div class="kt-portlet__head-actions">
+
+                    <a href="javascript:; " (click)="addAssociation()" class="btn btn-success btn-elevate btn-icon-sm">
+                        <i class="la la-plus"></i>Ajouter
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="example-header  col-md-4">
+        <i class="flaticon-search-magnifier-interface-symbol text-dark"></i>&nbsp;
+        <mat-form-field>
+            <input matInput (keyup)="applyFilter($event.target.value)"
+                placeholder="{{ 'PAGES.GENERAL.FILTER' | translate }}">
+        </mat-form-field>
+    </div>
+    <table id="exportData" mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
+        <ng-container matColumnDef="Id">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                N° Tarification</th>
+            <td mat-cell *matCellDef="let row" class="num"> {{row.Id}} </td>
+        </ng-container>
+		<ng-container matColumnDef="CategorieProduit">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                Categorie Produit
+            </th>
+            <td mat-cell *matCellDef="let row">
+                {{ row.CategorieProduit? ((row.CategorieProduit.length>40)? (row.CategorieProduit | slice:0:17)+
+                '...':(row.CategorieProduit)) : "-" }} </td>
+        </ng-container>
+		<ng-container matColumnDef="TypeProduit">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                Type Produit
+            </th>
+            <td mat-cell *matCellDef="let row">
+                {{ row.TypeProduit? ((row.TypeProduit.length>40)? (row.TypeProduit | slice:0:17)+
+                '...':(row.TypeProduit)) : "-" }} </td>
+        </ng-container>
+		<ng-container matColumnDef="SousTypeProduit">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                Sous Type Produit
+            </th>
+            <td mat-cell *matCellDef="let row">
+                {{ row.SousTypeProduit? ((row.SousTypeProduit.length>40)? (row.SousTypeProduit | slice:0:17)+
+                '...':(row.SousTypeProduit)) : "-" }} </td>
+        </ng-container>
+		<ng-container matColumnDef="IdProduit">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+					Produit
+            </th>
+            <td mat-cell *matCellDef="let row">
+                {{ row.IdProduit? ((row.IdProduit.length>40)? (row.IdProduit | slice:0:17)+
+                '...':(row.IdProduit)) : "-" }} </td>
+        </ng-container>
+		<ng-container matColumnDef="DateDebut">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+					Date 
+            </th>
+            <td mat-cell *matCellDef="let row">
+                {{ row.DateDebut? ((row.DateDebut.length>40)? (row.DateDebut | slice:0:17)+
+                '...':(row.DateDebut)) : "-" }} </td>
+        </ng-container>
+
+		<ng-container matColumnDef="Prix">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+				Prix
+            </th>
+            <td mat-cell *matCellDef="let row">
+                {{ row.Prix? ((row.Prix.length>40)? (row.Prix | slice:0:17)+
+                '...':(row.Prix)) : "-" }} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="actions">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header class="action"> Actions </th>
+            <td mat-cell *matCellDef="let row" class="actionsBtn action">
+                <button type="button" routerLink="/parametrages/add-type-juridiction"
+				(click)="DetailAssociation1()"
+				class="btn btn-sm btn-clean btn-icon btn-success btn-icon-md btn_table_show"
+                    matTooltip="{{ 'PAGES.GENERAL.DETAILS' | translate }}"><i
+                        class="icon la la-search-plus"></i></button>
+                <button type="button" routerLink="/parametrages/add-type-juridiction"
+                (click)="ModifierAssociation1()"
+				class="btn btn-sm btn-clean btn-icon btn-warning btn-icon-md btn_table_edit"
+                    matTooltip="{{ 'PAGES.GENERAL.EDIT' | translate }}"><i class="icon la la-edit"></i></button>
+                <button type="button" (click)="deleteAssociation(row.id)"
+                    class="btn btn-sm btn-clean btn-icon btn-danger btn-icon-md btn_table_delete"
+                    matTooltip="{{ 'PAGES.GENERAL.DELETE' | translate }}"><i class="icon la la-trash"></i></button>
+            </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        <!-- footer data -->
+    </table>
+    <div *ngIf="dataSource.data.length == 0 && isLoading == false"
+        style="display: flex;justify-content: center;padding: 2%;color: orangered;">
+        {{ 'PAGES.GENERAL.NO_RECORDS' | translate }}
+    </div>
+    <mat-paginator *ngIf="dataSource != undefined &&  dataSource.data != undefined " [length]="dataSource.data.length"
+        [pageSize]="5" [pageIndex]="0" [pageSizeOptions]="[5,10,50]" showFirstLastButtons></mat-paginator>
+    <hr>
+</div>

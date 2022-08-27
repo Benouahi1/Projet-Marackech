@@ -1,0 +1,729 @@
+<div novalidate autocomplete="off">
+	<!-- {{addForm.value |json}} -->
+	<div class="kt-portlet portlet-3">
+		<div class="kt-portlet__head kt-bg-portlet-3">
+			<div class="kt-portlet__head-label">
+				<span class="kt-portlet__head-icon">
+					<i class="fas fa-address-card kt-font-inverse-brand"></i>
+				</span>
+				<h2 class="kt-portlet__head-title kt-font-inverse-brand">
+					Ajouter A.O
+				</h2>
+			</div>
+		</div>
+	</div>
+
+	<div class="kt-portlet__body">
+		<div class="card card-custom">
+			<div class="card-body p-0">
+				<!--begin::Wizard-->
+				<div
+					class="wizard wizard-1"
+					id="kt_wizard_v1"
+					data-wizard-state="first"
+					data-wizard-clickable="false"
+				>
+					<div
+						class="row justify-content-center my-10 px-8 my-lg-15 px-lg-10 mt-4"
+						style="width: 70%; margin-left: 15%"
+					>
+						<div class="col-xl-10 col-xxl-6">
+
+
+								<div class="row">
+									<div class="col-md-12">
+										<div
+											class="form-group fv-plugins-icon-container"
+										>
+
+
+
+
+
+														<div class="Radio" style="
+																display: flex;
+																flex-wrap: wrap;
+																margin-right: -15px;
+																margin-left: -15px;
+																justify-content: center;
+														">
+															<div class="col-md-6">
+																<div
+																	class="form-group fv-plugins-icon-container"
+																>
+																<input
+																class="form-check-input"
+																type="radio"
+																[(ngModel)]="isVisible"
+																name="isVisible1"
+																[value]="0"
+																[checked]="!isSelected"
+															/>
+															<label>
+																<h5 >
+																	Aucan Projet
+																</h5>
+															</label>
+
+																</div>
+															</div>
+
+															<div class="col-md-6">
+																<div
+																	class="form-group fv-plugins-icon-container"
+																>
+																<input
+																class="form-check-input"
+																type="radio"
+																[(ngModel)]="isVisible"
+																name="isVisible1"
+																[value]="1"
+																[checked]="isSelected"
+															/>
+															<label>
+																<h5 >
+																	Projet
+																</h5>
+															</label>
+
+													</div>
+												</div>
+											</div>
+
+
+
+
+
+
+
+
+
+											<div class="m-6 text-center purple" *ngIf="isVisible == 1">
+												<div class="row">
+
+													<div class="col-md-6">
+														<div class="form-group">
+															<mat-form-field class="example-full-width">
+																<label>
+																	Projet
+																</label>
+																<mat-select class="form-control-lg" placeholder="">
+																	<mat-option [value]="''">Projet A</mat-option>
+																	<mat-option [value]="''">Projet B</mat-option>
+																	<mat-option [value]="''">Projet C</mat-option>
+																	<mat-option [value]="''">Prjet D </mat-option>
+																</mat-select>
+															</mat-form-field>
+														</div>
+
+												</div>
+											</div>
+										</div>
+
+
+								<div class="row">
+									<div class="col-md-4">
+										<div
+											class="form-group fv-plugins-icon-container"
+										>
+										<mat-form-field class="example-full-width">
+											<mat-label>Organiseme</mat-label>
+																<mat-select class="form-control-lg" [(ngModel)]="Presentation" placeholder="">
+																	<mat-option  [value]="1">Organiseme A</mat-option>
+																	<mat-option [value]="2">Organiseme B</mat-option>
+																	<mat-option [value]="3">Organiseme C</mat-option>
+																	<mat-option [value]="4">Organiseme D </mat-option>
+																</mat-select>
+															</mat-form-field>
+											<div
+												class="fv-plugins-message-container"
+											></div>
+
+											<div
+												class="fv-plugins-message-container"
+											></div>
+										</div>
+									</div>
+									<div class="col-md-4">
+										<div
+											class="form-group fv-plugins-icon-container"
+										>
+										<mat-form-field class="example-full-width" >
+											<mat-label>Prestation</mat-label>
+																<mat-select class="form-control-lg" [(ngModel)]="Type" placeholder="">
+																	<mat-option *ngIf="Presentation == 1" [value]="'1'">Prestation A</mat-option>
+																	<mat-option  *ngIf="Presentation == 2" [value]="'2'">Prestation B</mat-option>
+																	<mat-option *ngIf="Presentation == 3" [value]="'3'">Prestation C</mat-option>
+																	<mat-option *ngIf="Presentation == 4" [value]="'4'">Prestation D</mat-option>
+
+																</mat-select>
+															</mat-form-field>
+											<div
+												class="fv-plugins-message-container"
+											></div>
+
+											<div
+												class="fv-plugins-message-container"
+											></div>
+										</div>
+									</div>
+									<div class="col-md-4">
+										<div
+											class="form-group fv-plugins-icon-container"
+										>
+										<mat-form-field class="example-full-width">
+											<mat-label>Type prestation</mat-label>
+																<mat-select class="form-control-lg" placeholder="">
+																	<mat-option  *ngIf="Type == 1" [value]="''">Type prestation A</mat-option>
+																	<mat-option *ngIf="Type == 2" [value]="''">Type prestation B</mat-option>
+																	<mat-option *ngIf="Type == 3" [value]="''">Type prestation C</mat-option>
+																	<mat-option *ngIf="Type == 4" [value]="''">Type prestation D </mat-option>
+																</mat-select>
+															</mat-form-field>
+											<div
+												class="fv-plugins-message-container"
+											></div>
+
+											<div
+												class="fv-plugins-message-container"
+											></div>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-6">
+										<div
+											class="form-group fv-plugins-icon-container"
+										><mat-form-field class="example-full-width">
+											<mat-label>Budget estimatif</mat-label>
+											<input 	type="text"
+											class=" form-control-solid form-control-lg"
+											name="address1"  matInput>
+										</mat-form-field>
+											<div
+												class="fv-plugins-message-container"
+											></div>
+
+											<div
+												class="fv-plugins-message-container"
+											></div>
+										</div>
+									</div>
+									<div class="col-md-6">
+										<div
+											class="form-group fv-plugins-icon-container"
+										>
+										<mat-form-field class="example-full-width">
+											<mat-label>estimation</mat-label>
+											<input 	type="text"
+											class=" form-control-solid form-control-lg"
+											name="address1"  matInput>
+										</mat-form-field>
+											<div
+												class="fv-plugins-message-container"
+											></div>
+
+											<div
+												class="fv-plugins-message-container"
+											></div>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-12">
+										<div
+											class="form-group fv-plugins-icon-container"
+										><mat-form-field class="example-full-width">
+											<mat-label>Objet * </mat-label>
+											<input 	type="text"
+											class=" form-control-solid form-control-lg"
+											name="address1"  matInput>
+										</mat-form-field>
+											<div
+												class="fv-plugins-message-container"
+											></div>
+
+											<div
+												class="fv-plugins-message-container"
+											></div>
+										</div>
+									</div>
+
+								</div>
+								<div class="row">
+									<div class="col-md-12">
+										<div
+											class="form-group fv-plugins-icon-container"
+										><mat-form-field class="example-full-width">
+											<mat-label>Objet AR* </mat-label>
+											<input 	type="text"
+											class=" form-control-solid form-control-lg"
+											name="address1"  matInput>
+										</mat-form-field>
+											<div
+												class="fv-plugins-message-container"
+											></div>
+
+											<div
+												class="fv-plugins-message-container"
+											></div>
+										</div>
+									</div>
+
+								</div>
+
+
+								<div class="row">
+									<div class="col-md-3">
+										<div
+											class="form-group fv-plugins-icon-container"
+										>
+										<mat-form-field class="example-full-width">
+											<mat-label>Devesion</mat-label>
+																<mat-select class="form-control-lg"  placeholder="">
+																	<mat-option  [value]="1">Devision A</mat-option>
+																	<mat-option [value]="2">Devision B</mat-option>
+																	<mat-option [value]="3">Devision C</mat-option>
+																	<mat-option [value]="4">Devision D</mat-option>
+																</mat-select>
+															</mat-form-field>
+											<div
+												class="fv-plugins-message-container"
+											></div>
+
+											<div
+												class="fv-plugins-message-container"
+											></div>
+										</div>
+									</div>
+									<div class="col-md-3">
+										<div
+											class="form-group fv-plugins-icon-container"
+										>
+										<mat-form-field class="example-full-width" >
+											<mat-label>Service</mat-label>
+																<mat-select class="form-control-lg"  placeholder="">
+																	<mat-option  [value]="'1'">Service A</mat-option>
+																	<mat-option  [value]="'2'">Service B</mat-option>
+																	<mat-option  [value]="'3'">Service C</mat-option>
+																	<mat-option  [value]="'4'">Service D</mat-option>
+
+																</mat-select>
+															</mat-form-field>
+											<div
+												class="fv-plugins-message-container"
+											></div>
+
+											<div
+												class="fv-plugins-message-container"
+											></div>
+										</div>
+									</div>
+									<div class="col-md-3">
+										<div
+											class="form-group fv-plugins-icon-container"
+										>
+										<mat-form-field class="example-full-width">
+											<mat-label>Type Marche</mat-label>
+																<mat-select class="form-control-lg" placeholder="">
+																	<mat-option  [value]="''">Type Marche A</mat-option>
+																	<mat-option  [value]="''">Type Marche B</mat-option>
+																	<mat-option  [value]="''">Type Marche C</mat-option>
+																	<mat-option  [value]="''">Type Marche D </mat-option>
+																</mat-select>
+															</mat-form-field>
+											<div
+												class="fv-plugins-message-container"
+											></div>
+
+											<div
+												class="fv-plugins-message-container"
+											></div>
+										</div>
+									</div>
+									<div class="col-md-3">
+										<div
+											class="form-group fv-plugins-icon-container"
+										>
+										<mat-form-field class="example-full-width">
+											<mat-label>Nature AO</mat-label>
+																<mat-select class="form-control-lg" placeholder="">
+																	<mat-option  [value]="''">Nature AO A</mat-option>
+																	<mat-option  [value]="''">Nature AO B</mat-option>
+																	<mat-option  [value]="''">Nature AO C</mat-option>
+																	<mat-option  [value]="''">Nature AO D </mat-option>
+																</mat-select>
+															</mat-form-field>
+											<div
+												class="fv-plugins-message-container"
+											></div>
+
+											<div
+												class="fv-plugins-message-container"
+											></div>
+										</div>
+									</div>
+								</div>
+
+
+
+								<div class="row">
+									<div class="col-md-3">
+										<div
+											class="form-group fv-plugins-icon-container"
+										>
+										<mat-form-field class="example-full-width">
+											<mat-label>Nature de prix</mat-label>
+																<mat-select class="form-control-lg"  placeholder="">
+																	<mat-option  [value]="1">Prix A</mat-option>
+																	<mat-option [value]="2">Prix B</mat-option>
+
+																</mat-select>
+															</mat-form-field>
+											<div
+												class="fv-plugins-message-container"
+											></div>
+
+											<div
+												class="fv-plugins-message-container"
+											></div>
+										</div>
+									</div>
+									<div class="col-md-3">
+										<div
+											class="form-group fv-plugins-icon-container"
+										><mat-form-field class="example-full-width">
+											<mat-label>Coution * </mat-label>
+											<input 	type="text"
+											class=" form-control-solid form-control-lg"
+											name="address1"  matInput>
+										</mat-form-field>
+											<div
+												class="fv-plugins-message-container"
+											></div>
+
+											<div
+												class="fv-plugins-message-container"
+											></div>
+										</div>
+
+
+
+									</div>
+									<div class="col-md-3">
+										<div
+											class="form-group fv-plugins-icon-container"
+										>
+										<mat-form-field class="example-full-width">
+											<mat-label>Piéce justificative du régulment</mat-label>
+																<mat-select class="form-control-lg" placeholder="">
+																	<mat-option  [value]="''">Piéce A</mat-option>
+																	<mat-option  [value]="''">Piéce B</mat-option>
+
+																</mat-select>
+															</mat-form-field>
+											<div
+												class="fv-plugins-message-container"
+											></div>
+
+											<div
+												class="fv-plugins-message-container"
+											></div>
+										</div>
+									</div>
+									<div class="col-md-3">
+										<div
+											class="form-group fv-plugins-icon-container"
+										><mat-form-field class="example-full-width">
+											<mat-label>Descriptive </mat-label>
+											<input 	type="text"
+											class=" form-control-solid form-control-lg"
+											name="address1"  matInput>
+										</mat-form-field>
+											<div
+												class="fv-plugins-message-container"
+											></div>
+
+											<div
+												class="fv-plugins-message-container"
+											></div>
+										</div>
+									</div>
+								</div>
+
+
+
+
+								<div class="Radio Row" style="
+								display: flex;
+								flex-wrap: wrap;
+								margin-right: -15px;
+								margin-left: -15px;
+								justify-content: center;
+						">
+							<div class="col-md-6">
+								<div
+									class="form-group fv-plugins-icon-container"
+								>
+								<input
+								class="form-check-input"
+								type="radio"
+								[(ngModel)]="Visible"
+								name="Visible1"
+								[value]="0"
+								[checked]="!isSelected"
+							/>
+							<label>
+								<h5 >
+									Aucan Convention
+								</h5>
+							</label>
+
+								</div>
+							</div>
+
+							<div class="col-md-6">
+								<div
+									class="form-group fv-plugins-icon-container"
+								>
+								<input
+								class="form-check-input"
+								type="radio"
+								[(ngModel)]="Visible"
+								name="Visible1"
+								[value]="1"
+								[checked]="isSelected"
+							/>
+							<label>
+								<h5 >
+									Convention
+								</h5>
+							</label>
+
+					</div>
+				</div>
+			</div>
+
+
+
+
+
+
+
+
+
+			<div class="m-6 text-center purple" *ngIf="Visible == 1">
+				<div class="row">
+
+					<div class="col-md-6">
+						<div class="form-group">
+							<mat-form-field class="example-full-width">
+								<label>
+									Convention
+								</label>
+								<mat-select class="form-control-lg" placeholder="">
+									<mat-option [value]="null">Convention A</mat-option>
+									<mat-option [value]="''">Convention B</mat-option>
+									<mat-option [value]="''">Convention C</mat-option>
+									<mat-option [value]="''">Convention D </mat-option>
+								</mat-select>
+							</mat-form-field>
+						</div>
+
+				</div>
+			</div>
+		</div>
+
+<br>
+
+<div class="" data-wizard-type="step-content">
+	<h4 class="mb-10 font-weight-bold text-dark">
+	</h4>
+	<div class="kt-portlet">
+		<div class="kt-portlet__head kt-bg-portlet-5">
+			<div class="kt-portlet__head-label">
+				<span class="kt-portlet__head-icon">
+					<i class="flaticon-attachment"></i>
+				</span> &nbsp;
+				<h3 class="kt-portlet__head-title">
+					{{ 'PAGES.GENERAL.ATTACHEMENT' | translate }}
+				</h3>
+			</div>
+		</div>
+		<div class="kt-portlet__body">
+			<div class="row">
+				<div class="col-md-2">
+					<mat-form-field class="example-full-width">
+						<mat-label>Type pj</mat-label>
+											<mat-select class="form-control" placeholder="">
+												<mat-option  [value]="''">CPS</mat-option>
+												<mat-option  [value]="''">RC</mat-option>
+												<mat-option  [value]="''">AUTRE</mat-option>
+											</mat-select>
+										</mat-form-field>
+				</div>
+				<div class="col-md-5 show_port input-group mt-4">
+					<form enctype="multipart/form-data" method="POST"
+
+						style="display: -webkit-inline-box;margin-inline-start: 98px;">
+						<label class="input-group-btn">
+							<span class="btn btn-info">
+								{{ 'PAGES.ATTCHEMENTS.SELECT_FILE' | translate }}<input
+									type="file" name="file"
+
+									formControlName="_file" id="customFile"
+									style="display: none;" multiple>
+							</span>
+						</label>
+						<input type="text" class="form-control" readonly>
+					</form>
+				</div>
+
+			</div>
+		</div>
+
+
+
+<div class="kt-portlet__heads">
+	<div
+		class="kt-portlet__head-label text-right"
+	>
+
+		<button
+			_ngcontent-dkp-c41=""
+			class="btn btn-success btn-md btn-tall btn-wide kt-font-bold bg-primary kt-font-transform-u"
+		>
+
+			ENREGISTRER
+		</button>
+	</div>
+</div>
+<div class="espace_bloc"></div>
+</div>
+</div>
+
+<div class="espace_bloc"></div>
+
+
+
+
+
+
+
+<table id="exportData" mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
+	<ng-container matColumnDef="Id">
+		<th mat-header-cell *matHeaderCellDef mat-sort-header>
+			id </th>
+		<td mat-cell *matCellDef="let row" class="num"> {{row.Id}} </td>
+	</ng-container>
+	<ng-container matColumnDef="Type">
+		<th mat-header-cell *matHeaderCellDef mat-sort-header>
+			Type
+		</th>
+		<td mat-cell *matCellDef="let row" class="Type">
+			{{ row.Type? ((row.Type.length>20)? (row.Type | slice:0:17)+ '...':(row.Type)) : "-" }}
+		</td>
+	</ng-container>
+	<ng-container matColumnDef="Piece">
+		<th mat-header-cell *matHeaderCellDef mat-sort-header>
+			Piece jointure
+		</th>
+		<td mat-cell *matCellDef="let row" class="Piece">
+			{{ row.Piece? ((row.Piece.length>20)? (row.Piece | slice:0:17)+ '...':(row.Piece)) : "-" }}
+		</td>
+	</ng-container>
+
+
+
+
+	<ng-container matColumnDef="actions">
+		<th mat-header-cell *matHeaderCellDef mat-sort-header class="action"> Actions </th>
+		<td mat-cell *matCellDef="let row" class="actionsBtn action">
+
+
+			<button type="button" (click)="deleteAssociation(row.id)"
+				class="btn btn-sm btn-clean btn-icon btn-danger btn-icon-md btn_table_delete"
+				matTooltip="{{ 'PAGES.GENERAL.DELETE' | translate }}"><i class="icon la la-trash"></i></button>
+		</td>
+	</ng-container>
+	<tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+	<tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+	<!-- footer data -->
+</table>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<br>
+<br>
+
+								<div class="kt-portlet__heads">
+									<div
+										class="kt-portlet__head-label text-right"
+									>
+										<!-- <button _ngcontent-dkp-c41=""
+		(click)="RetourEmbalages()"
+		class="btn btn-info btn-md btn-tall btn-wide bg-primary kt-font-transform-u" type="reset" >
+		<i _ngcontent-dkp-c41="" class="icon la la-list"></i>
+		RETOUR</button> -->
+										<button
+											href="javascript:; "
+											(click)="RetourEmbalages()"
+											_ngcontent-dkp-c41=""
+											class="btn btn-secondary btn-md btn-tall btn-wide kt-font-bold kt-font-transform-u"
+										>
+											<i
+												_ngcontent-dkp-c41=""
+												class="la la-recycle"
+											></i>
+											Retour
+										</button>
+										<button
+											_ngcontent-dkp-c41=""
+											class="btn btn-success btn-md btn-tall btn-wide kt-font-bold kt-font-transform-u"
+										>
+											<i
+												_ngcontent-dlp-c41
+												class="icon la la-floppy-o"
+											></i>
+											ENREGISTRER
+										</button>
+									</div>
+								</div>
+								<div class="espace_bloc"></div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+</div>
+

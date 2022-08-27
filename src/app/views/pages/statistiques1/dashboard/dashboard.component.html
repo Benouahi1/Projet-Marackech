@@ -1,0 +1,209 @@
+<!-- begin:: Content -->
+<div class="kt-portlet portlet-1">
+	<div class="kt-portlet__head kt-bg-portlet-1">
+		<div class="kt-portlet__head-label">
+			<h2 class="kt-portlet__head-title kt-font-inverse-brand">
+				Statistiques
+			</h2>
+		</div>
+	</div>
+	<div class="kt-portlet__body">
+		<form
+			novalidate
+			[formGroup]="searchForm"
+			class="d-flex justify-content-center"
+		>
+			<div class="row">
+				<!-- A -->
+				<div class="col-md-4">
+					<div class="form-group">
+						<div class="input-group date">
+							<mat-form-field class="example-full-width">
+								<input
+									matInput
+									class="form-control"
+									[matDatepicker]="picker1"
+									placeholder="Date debut :"
+									formControlName="dateDebut"
+								/>
+								<mat-datepicker-toggle
+									matSuffix
+									matSuffix
+									[for]="picker1"
+								>
+									<mat-icon matDatepickerToggleIcon
+										><i class="fas fa-calendar-plus"></i>
+									</mat-icon>
+								</mat-datepicker-toggle>
+								<mat-datepicker
+									touchUi="true"
+									#picker1
+								></mat-datepicker>
+							</mat-form-field>
+						</div>
+					</div>
+				</div>
+
+				<!-- A -->
+				<div class="col-md-4">
+					<div class="form-group">
+						<div class="input-group date">
+							<mat-form-field class="example-full-width">
+								<input
+									matInput
+									class="form-control"
+									[matDatepicker]="picker2"
+									[min]="searchForm.controls.dateDebut.value"
+									placeholder="{{
+										'PAGES.ASSOCIATION.DATE_END' | translate
+									}} :"
+									formControlName="dateFin"
+								/>
+								<mat-datepicker-toggle
+									matSuffix
+									matSuffix
+									[for]="picker2"
+								>
+									<mat-icon matDatepickerToggleIcon
+										><i class="fas fa-calendar-plus"></i>
+									</mat-icon>
+								</mat-datepicker-toggle>
+								<mat-datepicker
+									touchUi="true"
+									#picker2
+								></mat-datepicker>
+							</mat-form-field>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-md-4">
+					<div class="form-group"></div>
+					<button
+						[disabled]="searchForm.invalid"
+						(click)="onSubmit()"
+						class="btn btn-dark"
+					>
+						<i class="flaticon-search-1"></i
+						>{{ "PAGES.GENERAL.FILTER" | translate }}
+					</button>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>
+<!-- end::row-content-top -->
+<!-- start::row-content -->
+<div class="row d-flex justify-content-center">
+	<!-- begin :: statistiques -->
+	<div class="col-lg-5">
+		<div class="kt-portlet">
+			<div class="kt-portlet__head kt-bg-portlet-5">
+				<div class="kt-portlet__head-label">
+					<h2 class="kt-portlet__head-title">Véhicule</h2>
+				</div>
+			</div>
+			<div class="kt-portlet__body">
+				<div class="row">
+					<mat-radio-group (change)="selectionChanged($event)">
+						<mat-radio-button value="pie">
+							<i class="flaticon2-pie-chart-1"></i>
+						</mat-radio-button>
+						<mat-radio-button value="doughnut">
+							<i class="flaticon2-pie-chart-2"></i>
+						</mat-radio-button>
+						<mat-radio-button [checked]="true" value="bar">
+							<i class="flaticon2-poll-symbol"></i>
+						</mat-radio-button>
+						<mat-radio-button value="line">
+							<i class="flaticon2-analytics"></i>
+						</mat-radio-button>
+					</mat-radio-group>
+				</div>
+				<br />
+				<div class="row">
+					<div class="col-md-5 show_port">
+						<label> N° : </label>
+						<select
+							name="address1"
+							class="form-control form-control-solid form-control-lg"
+						>
+							<option value="">1</option>
+							<option value="">2</option>
+						</select>
+					</div>
+
+					<div class="col-md-5">
+						<mat-radio-group aria-label="Select an option">
+							<mat-radio-button value="1" checked="true"
+								>Aperçu le numéro de véhicule</mat-radio-button
+							>
+							<mat-radio-button value="2"
+								>Aperçu de l'historique du
+								véhicule</mat-radio-button
+							>
+							<mat-radio-button value="3"
+								>Rapport par utilisateur</mat-radio-button
+							>
+						</mat-radio-group>
+					</div>
+				</div>
+				<br />
+				<div class="row">
+					<div class="col-md-12 show_port">
+						<div class="col-md-12 show_port">
+							<!-- begin::chart -->
+							<div Style="pointer-events: none;">
+								<canvas id="canvas"></canvas>
+							</div>
+							<!-- end::chart -->
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-lg-5">
+		<div class="kt-portlet">
+			<div class="kt-portlet__head kt-bg-portlet-5">
+				<div class="kt-portlet__head-label">
+					<h2 class="kt-portlet__head-title">Produit</h2>
+				</div>
+			</div>
+			<!-- begin::chart -->
+			<router-outlet></router-outlet>
+			<!-- end::chart -->
+		</div>
+	</div>
+</div>
+
+<div class="row d-flex justify-content-center">
+	<!-- begin :: statistiques -->
+	<div class="col-lg-5">
+		<div class="kt-portlet">
+			<div class="kt-portlet__head kt-bg-portlet-5">
+				<div class="kt-portlet__head-label">
+					<h2 class="kt-portlet__head-title">Carreau</h2>
+				</div>
+			</div>
+			<!-- begin::chart -->
+			<router-outlet name="aside"></router-outlet>
+			<!-- end::chart -->
+		</div>
+	</div>
+</div>
+
+<!-- <div class="kt-portlet__heads">
+	<div class="kt-portlet__head-label" align="right">
+		<button
+			href="javascript:; "
+			(click)="EtapeDernier()"
+			_ngcontent-dkp-c41=""
+			class="btn btn-secondary btn-md btn-tall btn-wide kt-font-bold kt-font-transform-u"
+		>
+			<i _ngcontent-dkp-c41="" class="la la-recycle"></i>
+			Retour
+		</button>
+	</div>
+</div>
+<div class="espace_bloc"></div> -->

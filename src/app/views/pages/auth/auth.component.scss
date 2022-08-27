@@ -1,0 +1,35 @@
+// import login css
+@import "sass/pages/login/login-1";
+kt-auth,
+.kt-login {
+    height: 100%;
+    .mat-form-field {
+        width: 100%;
+    }
+    // add extra right padding when displaying spinner in button
+    .kt-spinner {
+        padding-right: 3rem !important;
+    }
+}
+
+.kt-login.kt-login--v1 .kt-login__aside .kt-login__title {
+    font-size: 35px;
+    font-weight: 600;
+}
+
+.kt-login__title {
+    text-align: center;
+}
+
+.mat-form-field-label {
+    font-size: 13px !important;
+}
+
+.mat-form-field-infix {
+    font-size: 14px !important;
+}
+
+a.kt-login__btn-danger{
+    color: #f62b20;
+    font-weight: 700;
+}

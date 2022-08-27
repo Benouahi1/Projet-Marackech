@@ -1,0 +1,167 @@
+<div class="kt-portlet">
+	<div class="kt-portlet__head">
+		<div class="kt-portlet__head-label">
+			<span class="kt-portlet__head-icon">
+				<i class="flaticon-search-magnifier-interface-symbol"></i>
+			</span>
+			<div class="col-md-4">
+				<mat-form-field>
+					<input
+						matInput
+						(keyup)="applyFilter($event.target.value)"
+						placeholder="{{ 'PAGES.GENERAL.FILTER' | translate }}"
+					/>
+				</mat-form-field>
+			</div>
+		</div>
+		<div class="kt-portlet__head-toolbar">
+			<div class="kt-portlet__head-wrapper">
+				<div class="kt-portlet__head-actions">
+					<button
+						*ngIf="dataSource.data.length > 0"
+						(click)="exportTable()"
+						type="button"
+						class="btn btn-sm btn-clean btn-icon btn-success btn-icon-md btn_table_show"
+						matTooltip="{{
+							'PAGES.GENERAL.DOWNLOAD' | translate
+						}}&nbsp;"
+					>
+						<i class="flaticon2-download text-success"></i>
+					</button>
+					<a
+						href="javascript:; "
+						(click)="addSubvention()"
+						class="btn btn-success btn-elevate btn-icon-sm"
+					>
+						<i class="la la-plus"></i>
+						Nouveau
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<br />
+	<div class="row">
+		<div class="col-md-4">
+			<div class="form-group">
+				<select
+					name="address1"
+					class="form-control form-control-solid form-control-lg"
+				>
+					<option value="" disabled>--Select Evenement--</option>
+					<option value="">evenement 1</option>
+					<option value="">evenement 2</option>
+					<option value="">evenement 3</option>
+				</select>
+				
+				<div class="fv-plugins-message-container"></div>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<button class="btn btn-success p-2">Enregistrer</button>
+		</div>
+	</div>
+
+	<table
+		id="exportDataSub"
+		mat-table
+		[dataSource]="dataSource"
+		class="mat-elevation-z8"
+		matSort
+	>
+		<!-- note Column -->
+		<ng-container matColumnDef="sujet">
+			<th mat-header-cell *matHeaderCellDef mat-sort-header>
+				Sujet
+			</th>
+			<td mat-cell *matCellDef="let row">
+				{{ row.sujet ? row.sujet : "-" }}
+			</td>
+		</ng-container>
+		<ng-container matColumnDef="date">
+			<th mat-header-cell *matHeaderCellDef mat-sort-header>
+				Date
+			</th>
+			<td mat-cell *matCellDef="let row">
+				{{ row.date ? row.date : "-" }}
+			</td>
+		</ng-container>
+		<ng-container matColumnDef="object">
+			<th mat-header-cell *matHeaderCellDef mat-sort-header>
+				Object
+			</th>
+			<td mat-cell *matCellDef="let row">
+				{{
+					row.object ? row.object : "-"
+				}}
+			</td>
+		</ng-container>
+
+		<ng-container matColumnDef="piece_jointe">
+			<th mat-header-cell *matHeaderCellDef mat-sort-header>
+				Piéce Jointe 
+			</th>
+			<td mat-cell *matCellDef="let row">
+				{{ row.piece_jointe }}
+			</td>
+		</ng-container>
+
+		<!-- Action Column -->
+		<ng-container matColumnDef="actions">
+			<th mat-header-cell *matHeaderCellDef mat-sort-header></th>
+			<td mat-cell *matCellDef="let row">
+				<button
+					type="button"
+					(click)="editSubvention(row)"
+					class="btn btn-sm btn-clean btn-icon btn-warning btn-icon-md btn_table_edit"
+					matTooltip="{{ 'PAGES.GENERAL.EDIT' | translate }}"
+				>
+					<i class="icon la la-edit"></i>
+				</button>
+				<button
+					type="button"
+					(click)="deleteSubvention(row.id)"
+					class="btn btn-sm btn-clean btn-icon btn-danger btn-icon-md btn_table_delete"
+					matTooltip="{{ 'PAGES.GENERAL.DELETE' | translate }}"
+				>
+					<i class="icon la la-trash"></i>
+				</button>
+			</td>
+		</ng-container>
+		<tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+		<tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+	</table>
+	<div
+		*ngIf="dataSource.data.length == 0 && isLoading == false"
+		style="
+			display: flex;
+			justify-content: center;
+			padding: 2%;
+			color: orangered;
+		"
+	>
+		{{ "PAGES.GENERAL.NO_RECORDS" | translate }}
+	</div>
+	<mat-card
+		*ngIf="isLoading"
+		style="display: flex; justify-content: center; align-items: center"
+	>
+		<mat-progress-spinner
+			color="primary"
+			mode="indeterminate"
+			diameter="50"
+		>
+		</mat-progress-spinner>
+	</mat-card>
+
+	<mat-paginator
+		*ngIf="dataSource != undefined && dataSource.data != undefined"
+		[length]="dataSource.data.length"
+		[pageSize]="5"
+		[pageIndex]="0"
+		[pageSizeOptions]="[5, 10, 50]"
+		showFirstLastButtons
+	></mat-paginator>
+	<hr />
+</div>

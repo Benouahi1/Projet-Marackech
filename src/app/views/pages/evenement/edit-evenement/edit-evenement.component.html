@@ -1,0 +1,351 @@
+<!--begin::Form-->
+
+<div autocomplete="off">
+	<!-- {{addForm.value |json}} -->
+	<div class="kt-portlet portlet-3">
+		<div class="kt-portlet__head kt-bg-portlet-3">
+			<div class="kt-portlet__head-label">
+				<h2 class="kt-portlet__head-title kt-font-inverse-brand">
+					Modifier un événement
+				</h2>
+			</div>
+		</div>
+	</div>
+	<div class="kt-portlet__body">
+		<div class="card card-custom">
+			<div class="card-body p-0">
+				<!--begin::Wizard-->
+				<div
+					class="wizard wizard-1"
+					id="kt_wizard_v1"
+					data-wizard-state="first"
+					data-wizard-clickable="false"
+				>
+					<!--begin::Wizard Body-->
+					<div
+						class="row justify-content-center my-10 px-8 my-lg-15 px-lg-10 mt-4"
+						style="width: 70%; margin-left: 15%"
+					>
+						<div class="col-xl-10 col-xxl-6">
+							<!--begin::Wizard Form-->
+							<form
+								class="form fv-plugins-bootstrap fv-plugins-framework"
+								id="kt_form"
+							>
+								<!--begin::Wizard Step 1-->
+								<div
+									class="pb-5"
+									data-wizard-type="step-content"
+									data-wizard-state="current"
+								>
+									<!--begin::Input-->
+									<div class="row">
+										<div class="col-md-6">
+											<div
+												class="form-group fv-plugins-icon-container"
+											>
+												<label>Num événement : </label>
+												<input
+													type="text"
+													value="1"
+													class="form-control form-control-solid form-control-lg"
+													name="address1"
+												/>
+
+												<div
+													class="fv-plugins-message-container"
+												></div>
+											</div>
+										</div>
+
+										<div class="col-md-6">
+											<div
+												class="form-group fv-plugins-icon-container"
+											>
+												<label
+													>Date d'événement :
+												</label>
+												<input
+													type="date"
+													value="2021-05-10"
+													class="form-control form-control-solid form-control-lg"
+													name="address1"
+												/>
+												<div
+													class="fv-plugins-message-container"
+												></div>
+											</div>
+										</div>
+									</div>
+
+									<div class="row">
+										<div class="col-md-6">
+											<div
+												class="form-group fv-plugins-icon-container"
+											>
+												<label
+													>Type d'événement :
+												</label>
+												<select
+													name="address1"
+													class="form-control form-control-solid form-control-lg"
+												>
+													<option value="">
+														Type 1
+													</option>
+													<option value="">
+														Type 2
+													</option>
+												</select>
+												<div
+													class="fv-plugins-message-container"
+												></div>
+											</div>
+										</div>
+
+										<div class="col-md-6">
+											<div
+												class="form-group fv-plugins-icon-container"
+											>
+												<label>
+													N° du matricule :
+												</label>
+												<select
+													name="address1"
+													class="form-control form-control-solid form-control-lg"
+												>
+													<option value="">
+														123565
+													</option>
+													<option value="">
+														231545
+													</option>
+												</select>
+												<div
+													class="fv-plugins-message-container"
+												></div>
+											</div>
+										</div>
+									</div>
+
+									<div class="row">
+										<div class="col-md-6">
+											<div
+												class="form-group fv-plugins-icon-container date"
+											>
+												<label> Description : </label>
+												<input
+													type="text"
+													value="description1"
+													class="form-control form-control-solid form-control-lg"
+													name="address1"
+												/>
+
+												<div
+													class="fv-plugins-message-container"
+												></div>
+											</div>
+										</div>
+
+										<div class="col-md-6">
+											<div
+												class="form-group fv-plugins-icon-container date"
+											>
+												<label>Action : </label>
+												<input
+													type="text"
+													value="action1"
+													class="form-control form-control-solid form-control-lg"
+													name="address1"
+												/>
+												<div
+													class="fv-plugins-message-container"
+												></div>
+											</div>
+										</div>
+
+										<div class="col-md-6">
+											<div
+												class="form-group fv-plugins-icon-container date"
+											>
+												<label
+													>Date de déclaration :
+												</label>
+												<input
+													type="date"
+													value="2021-05-15"
+													class="form-control form-control-solid form-control-lg"
+													name="address1"
+												/>
+												<div
+													class="fv-plugins-message-container"
+												></div>
+											</div>
+										</div>
+
+										<div class="col-md-6">
+											<div
+												class="form-group fv-plugins-icon-container date"
+											>
+												<label>Statut : </label>
+												<select
+													name="address1"
+													class="form-control form-control-solid form-control-lg"
+												>
+													<option value="">
+														Payé
+													</option>
+													<option value="">
+														Non payé
+													</option>
+												</select>
+												<div
+													class="fv-plugins-message-container"
+												></div>
+											</div>
+										</div>
+
+										<div class="col-md-6">
+											<div
+												class="form-group fv-plugins-icon-container date"
+											>
+												<label>Observation : </label>
+												<input
+													type="text"
+													value="observation1"
+													class="form-control form-control-solid form-control-lg"
+													name="address1"
+												/>
+												<div
+													class="fv-plugins-message-container"
+												></div>
+											</div>
+										</div>
+
+										<div class="col-md-12">
+											<div
+												class="pb-5"
+												data-wizard-type="step-content"
+											>
+												<h4
+													class="mb-10 font-weight-bold text-dark"
+												></h4>
+												<div class="kt-portlet">
+													<div
+														class="kt-portlet__head kt-bg-portlet-5"
+													>
+														<div
+															class="kt-portlet__head-label"
+														>
+															<span
+																class="kt-portlet__head-icon"
+															>
+																<i
+																	class="flaticon-attachment"
+																></i>
+															</span>
+															&nbsp;
+															<h3
+																class="kt-portlet__head-title"
+															>
+																Piéces Jointes
+															</h3>
+														</div>
+													</div>
+													<div
+														class="kt-portlet__body"
+													>
+														<div class="row">
+															<div
+																class="col-md-6 show_port input-group"
+															>
+																<form
+																	enctype="multipart/form-data"
+																	method="POST"
+																	style="
+																		display: -webkit-inline-box;
+																		margin-inline-start: 98px;
+																	"
+																>
+																	<label
+																		class="input-group-btn"
+																	>
+																		<span
+																			class="btn btn-info"
+																		>
+																			selectionner
+																			un
+																			fichier
+																			<input
+																				type="file"
+																				name="file"
+																				formControlName="_file"
+																				id="customFile"
+																				style="
+																					display: none;
+																				"
+																				multiple
+																			/>
+																		</span>
+																	</label>
+																	<input
+																		type="text"
+																		class="form-control"
+																		readonly
+																	/>
+																</form>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+
+									<!--end::Input-->
+								</div>
+								<!--end::Wizard Step 1-->
+
+								<!--begin::Wizard Actions-->
+								<div class="kt-portlet__heads">
+									<div
+										class="kt-portlet__head-label"
+										align="right"
+									>
+										<button
+											href="javascript:; "
+											(click)="EtapeDernier()"
+											_ngcontent-dkp-c41=""
+											class="btn btn-secondary btn-md btn-tall btn-wide kt-font-bold kt-font-transform-u"
+										>
+											<i
+												_ngcontent-dkp-c41=""
+												class="la la-recycle"
+											></i>
+											Retour
+										</button>
+										<button
+											_ngcontent-dkp-c41=""
+											class="btn btn-success btn-md btn-tall btn-wide kt-font-bold kt-font-transform-u"
+											type="reset"
+										>
+											<i
+												_ngcontent-dlp-c41
+												class="icon la la-floppy-o"
+											></i>
+											Valider
+										</button>
+									</div>
+								</div>
+								<div class="espace_bloc"></div>
+							</form>
+							<!--end::Wizard Actions-->
+						</div>
+						<!--end::Wizard Form-->
+					</div>
+					<!--end::Wizard Body-->
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

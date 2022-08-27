@@ -1,0 +1,75 @@
+
+<div class="kt-portlet">
+    <div class="kt-portlet__head">
+        <div class="kt-portlet__head-label">
+            <h2 class="kt-portlet__head-title">
+                Liste des Hangars
+			</h2>
+        </div>
+        <div class="kt-portlet__head-toolbar">
+            <div class="kt-portlet__head-wrapper">
+                <div class="kt-portlet__head-actions">
+                    <a href="javascript:; " (click)="addAssociation()" class="btn btn-success btn-elevate btn-icon-sm">
+                        <i class="la la-plus"></i> Ajouter
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="example-header  col-md-4">
+        <i class="flaticon-search-magnifier-interface-symbol text-dark"></i>&nbsp;
+        <mat-form-field>
+            <input matInput (keyup)="applyFilter($event.target.value)"
+                placeholder="{{ 'PAGES.GENERAL.FILTER' | translate }}">
+        </mat-form-field>
+    </div>
+    <table id="exportData" mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
+        <ng-container matColumnDef="NumHangar">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+               N° du Hangar</th>
+            <td mat-cell *matCellDef="let row" class="num"> {{row.NumHangar}} </td>
+        </ng-container>
+        <ng-container matColumnDef="Libelle">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                libellé
+            </th>
+            <td mat-cell *matCellDef="let row" class="libelle">
+                {{ row.Libelle? ((row.Libelle.length>20)? (row.Libelle | slice:0:17)+ '...':(row.Libelle)) : "-" }}
+            </td>
+        </ng-container>
+        <ng-container matColumnDef="Description">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                Description
+            </th>
+            <td mat-cell *matCellDef="let row">
+                {{ row.Description? ((row.Description.length>40)? (row.Description | slice:0:17)+
+                '...':(row.Description)) : "-" }} </td>
+        </ng-container>
+        <ng-container matColumnDef="actions">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header class="ml-5"> Actions </th>
+            <td mat-cell *matCellDef="let row" class="actionsBtn action">
+                <button type="button" routerLink="/parametrages/add-type-audience"
+                (click)="DetailAssociation()"
+				class="btn btn-sm btn-clean btn-icon btn-success btn-icon-md btn_table_show"
+                    matTooltip="{{ 'PAGES.GENERAL.DETAILS' | translate }}"><i
+                        class="icon la la-search-plus"></i></button>
+                <button type="button" routerLink="/parametrages/add-type-audience"
+                (click)=" ModifierAssociation()"
+				class="btn btn-sm btn-clean btn-icon btn-warning btn-icon-md btn_table_edit"
+                    matTooltip="{{ 'PAGES.GENERAL.EDIT' | translate }}"><i class="icon la la-edit"></i></button>
+                <button type="button" (click)="deleteAssociation(row.id)"
+                    class="btn btn-sm btn-clean btn-icon btn-danger btn-icon-md btn_table_delete"
+                    matTooltip="{{ 'PAGES.GENERAL.DELETE' | translate }}"><i class="icon la la-trash"></i></button>
+            </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    <div *ngIf="dataSource.data.length == 0 && isLoading == false"
+        style="display: flex;justify-content: center;padding: 2%;color: orangered;">
+        {{ 'PAGES.GENERAL.NO_RECORDS' | translate }}
+    </div>
+    <mat-paginator *ngIf="dataSource != undefined &&  dataSource.data != undefined " [length]="dataSource.data.length"
+        [pageSize]="5" [pageIndex]="0" [pageSizeOptions]="[5,10,50]" showFirstLastButtons></mat-paginator>
+    <hr>
+</div>

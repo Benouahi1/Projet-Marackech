@@ -1,0 +1,63 @@
+<div class="kt-grid kt-grid--hor kt-grid--root kt-login kt-login--v1" id="kt_login">
+    <div class="kt-grid__item kt-grid__item--fluid kt-grid kt-grid--desktop kt-grid--ver-desktop kt-grid--hor-tablet-and-mobile"
+        style="background-image: url(./assets/media/misc/backg.jpg);">
+
+        <div class="kt-grid__item kt-grid__item--order-tablet-and-mobile-2 kt-grid kt-grid--hor kt-login__aside">
+
+            <!-- <div class="kt-grid__item">
+                <a href="javascript:;" class="kt-login__logo" style="align-items: center;">
+                    <img src="./assets/media/logos/logo55.png" style="display: block; width:15%"  >
+                    
+                </a>
+            </div> -->
+            <div class="kt-grid__item kt-grid__item--fluid kt-grid kt-grid--ver login-text-form">
+                <div class="kt-grid__item kt-grid__item--middle">
+                    <div class="kt-grid__item">
+                        <a href="javascript:;" class="kt-login__logo"
+                            style="align-items: center; display: flex; justify-content: center;">
+                            <img src="./assets/media/logos/logo-6-sm.png" style=" width:46%">
+                            <!-- <h3 style="color: #fff;
+                            font-size: 20px;
+                            margin-top: 70px;
+                            margin-right: 21px;
+                            margin-left: 21px;">
+                                {{ 'TRANSLATOR.COMMUNE_MARR' | translate }}
+                            </h3> -->
+                            <!--   <h3 style="color: #fff;
+                            position: absolute;
+                            top: 140px;
+                            font-size: 10px;">
+                        
+                            </h3> -->
+                        </a>
+                    </div>
+                    <h3 class="kt-login__title mt-5
+                    " style=" display: flex; justify-content: center;">{{
+                        'TRANSLATOR.TITRE_APP' |
+                        translate }} <br></h3>
+                    <!-- <h4 class="kt-login__subtitle">المنصة الرقمية</h4> -->
+                </div>
+            </div>
+            <div class="kt-grid__item login-kt-grid">
+                <div class="kt-login__info">
+                    <!-- <div class="kt-login__copyright">
+                        © {{today|date:'yyyy'}} Brome
+                    </div> -->
+
+                </div>
+            </div>
+        </div>
+
+        <!--begin::Aside-->
+
+        <!--begin::Content-->
+
+        <div class="kt-grid__item kt-grid__item--fluid  kt-grid__item--order-tablet-and-mobile-1 kt-login__wrapper">
+            <router-outlet></router-outlet>
+        </div>
+
+
+
+        <!--end::Content-->
+    </div>
+</div>

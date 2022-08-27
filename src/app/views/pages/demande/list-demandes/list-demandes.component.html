@@ -1,0 +1,246 @@
+<div class="kt-portlet">
+	<div class="kt-portlet__head">
+		<div class="kt-portlet__head-label">
+			<h2 class="kt-portlet__head-title">
+				Liste des demandes de consultation
+			</h2>
+		</div>
+		<div class="kt-portlet__head-toolbar">
+			<div class="kt-portlet__head-wrapper">
+				<div class="kt-portlet__head-actions">
+					<a
+						href="javascript:; "
+						(click)="addDemande()"
+						class="btn btn-success btn-elevate btn-icon-sm"
+					>
+						<i class="la la-plus"></i>
+						Ajouter
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="example-header col-md-4">
+		<i class="flaticon-search-magnifier-interface-symbol text-dark"></i
+		>&nbsp;
+		<mat-form-field>
+			<input
+				matInput
+				(keyup)="applyFilter($event.target.value)"
+				placeholder="{{ 'PAGES.GENERAL.FILTER' | translate }}"
+			/>
+		</mat-form-field>
+	</div>
+
+	<table
+		id="exportData"
+		mat-table
+		[dataSource]="dataSource"
+		class="mat-elevation-z8 w-100"
+		matSort
+	>
+		<ng-container matColumnDef="NUM">
+			<th colspan="3" mat-header-cell *matHeaderCellDef mat-sort-header>
+				N°
+			</th>
+			<td colspan="3" mat-cell *matCellDef="let row">
+				{{
+					row.NUM
+						? row.NUM.length > 20
+							? (row.NUM | slice: 0:17) + "..."
+							: row.NUM
+						: "-"
+				}}
+			</td>
+		</ng-container>
+		<ng-container matColumnDef="CIN_D">
+			<th colspan="3" mat-header-cell *matHeaderCellDef mat-sort-header>
+				CIN(Demandeur)
+			</th>
+			<td colspan="3" mat-cell *matCellDef="let row">
+				{{
+					row.CIN_D
+						? row.CIN_D.length > 20
+							? (row.CIN_D | slice: 0:17) + "..."
+							: row.CIN_D
+						: "-"
+				}}
+			</td>
+		</ng-container>
+		<ng-container matColumnDef="CIN_P">
+			<th colspan="3" mat-header-cell *matHeaderCellDef mat-sort-header>
+				CIN(Partie Défendresse)
+			</th>
+			<td colspan="3" mat-cell *matCellDef="let row">
+				{{
+					row.CIN_P
+						? row.CIN_P.length > 20
+							? (row.CIN_P | slice: 0:17) + "..."
+							: row.CIN_P
+						: "-"
+				}}
+			</td>
+		</ng-container>
+		<ng-container matColumnDef="OBJET">
+			<th colspan="3" mat-header-cell *matHeaderCellDef mat-sort-header>
+				Objet
+			</th>
+			<td colspan="3" mat-cell *matCellDef="let row">
+				{{
+					row.OBJET
+						? row.OBJET.length > 20
+							? (row.OBJET | slice: 0:17) + "..."
+							: row.OBJET
+						: "-"
+				}}
+			</td>
+		</ng-container>
+		<ng-container matColumnDef="DATE_C">
+			<th colspan="3" mat-header-cell *matHeaderCellDef mat-sort-header>
+				Date de création
+			</th>
+			<td colspan="3" mat-cell *matCellDef="let row">
+				{{
+					row.DATE_C
+						? row.DATE_C.length > 20
+							? (row.DATE_C | slice: 0:17) + "..."
+							: row.DATE_C
+						: "-"
+				}}
+			</td>
+		</ng-container>
+		<ng-container matColumnDef="STATUT">
+			<th colspan="3" mat-header-cell *matHeaderCellDef mat-sort-header>
+				Statut
+			</th>
+			<td colspan="3" mat-cell *matCellDef="let row">
+				{{
+					row.STATUT
+						? row.STATUT.length > 20
+							? (row.STATUT | slice: 0:17) + "..."
+							: row.STATUT
+						: "-"
+				}}
+			</td>
+		</ng-container>
+		<ng-container matColumnDef="DESCRIPTION_C">
+			<th colspan="3" mat-header-cell *matHeaderCellDef mat-sort-header>
+				Description courte
+			</th>
+			<td colspan="3" mat-cell *matCellDef="let row">
+				{{
+					row.DESCRIPTION_C
+						? row.DESCRIPTION_C.length > 20
+							? (row.DESCRIPTION_C | slice: 0:17) + "..."
+							: row.DESCRIPTION_C
+						: "-"
+				}}
+			</td>
+		</ng-container>
+		<ng-container matColumnDef="REMARQUE">
+			<th colspan="3" mat-header-cell *matHeaderCellDef mat-sort-header>
+				Remarque
+			</th>
+			<td colspan="3" mat-cell *matCellDef="let row">
+				{{
+					row.REMARQUE
+						? row.REMARQUE.length > 20
+							? (row.REMARQUE | slice: 0:17) + "..."
+							: row.REMARQUE
+						: "-"
+				}}
+			</td>
+		</ng-container>
+		<!-- ? -->
+		<ng-container matColumnDef="actions">
+			<th
+				mat-header-cell
+				*matHeaderCellDef
+				mat-sort-header
+				class="action"
+			>
+				Action
+			</th>
+			<div>
+				<td mat-cell *matCellDef="let row" class="actionsBtn action">
+					<button
+						href="javascript:;"
+						(click)="Details()"
+						type="button"
+						routerLink="/evenement/show-evenement"
+						class="btn btn-sm btn-clean btn-icon btn-success btn-icon-md btn_table_show"
+						matTooltip="{{ 'PAGES.GENERAL.DETAILS' | translate }}"
+					>
+						<i class="icon la la-search-plus"></i>
+					</button>
+					<button
+						href="javascript:;"
+						(click)="Edit()"
+						type="button"
+						routerLink="/evenement/edit-evenement"
+						class="btn btn-sm btn-clean btn-icon btn-warning btn-icon-md btn_table_edit"
+						matTooltip="{{ 'PAGES.GENERAL.EDIT' | translate }}"
+					>
+						<i class="icon la la-edit"></i>
+					</button>
+					<button
+						type="button"
+						(click)="deleteAssociation(row.id)"
+						class="btn btn-sm btn-clean btn-icon btn-danger btn-icon-md btn_table_delete"
+						matTooltip="{{ 'PAGES.GENERAL.DELETE' | translate }}"
+					>
+						<i class="icon la la-trash"></i>
+					</button>
+					<button
+						href="javascript:;"
+						(click)="gavel(row.id)"
+						*ngIf="row.NUM === '1'"
+						type="button"
+						class="btn btn-sm btn-clean btn-icon btn-icon-md btn-outline-secondary"
+						matTooltip="Transformer"
+					>
+						<i class="fa fa-gavel text-secondary"></i>
+					</button>
+				</td>
+			</div>
+		</ng-container>
+
+		<tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+		<tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+	</table>
+	<br />
+
+	<div
+		*ngIf="dataSource.data.length == 0 && isLoading == false"
+		style="
+			display: flex;
+			justify-content: center;
+			padding: 2%;
+			color: orangered;
+		"
+	>
+		{{ "PAGES.GENERAL.NO_RECORDS" | translate }}
+	</div>
+	<mat-paginator
+		*ngIf="dataSource != undefined && dataSource.data != undefined"
+		[length]="dataSource.data.length"
+		[pageSize]="5"
+		[pageIndex]="0"
+		[pageSizeOptions]="[5, 10, 50]"
+		showFirstLastButtons
+	></mat-paginator>
+
+	<!-- <div class="text-right justify-content-center mt-5 pt-10">
+		<div>
+			<a
+				href="javascript:; "
+				(click)="EtapeDernier()"
+				type="button"
+				class="btn btn-secondary btn-md btn-tall btn-wide kt-font-bold kt-font-transform-u"
+			>
+				<i class="la la-recycle"></i>
+				Retour
+			</a>
+		</div>
+	</div> -->
+</div>

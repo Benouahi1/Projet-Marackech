@@ -1,0 +1,192 @@
+<!--begin::Form-->
+<!-- <div novalidate [formGroup]="addForm" autocomplete="off"></div> -->
+<div autocomplete="off">
+	<!-- {{addForm.value |json}} -->
+	<div class="kt-portlet portlet-3">
+		<div class="kt-portlet__head kt-bg-portlet-3">
+			<div class="kt-portlet__head-label">
+				<h2 class="kt-portlet__head-title kt-font-inverse-brand">
+					Ajouter les details
+				</h2>
+			</div>
+		</div>
+	</div>
+	<div class="kt-portlet__body">
+		<div class="card card-custom">
+			<div class="card-body p-0">
+				<!--begin::Wizard-->
+				<div
+					class="wizard wizard-1"
+					id="kt_wizard_v1"
+					data-wizard-state="first"
+					data-wizard-clickable="false"
+				>
+					<!--begin::Wizard Body-->
+					<div
+						class="row justify-content-center my-10 px-8 my-lg-15 px-lg-10 mt-4"
+						style="width: 70%; margin-left: 15%"
+					>
+						<div class="col-xl-10 col-xxl-6">
+							<!--begin::Wizard Form-->
+							<form
+								class="form fv-plugins-bootstrap fv-plugins-framework"
+								id="kt_form"
+							>
+								<!--begin::Wizard Step 1-->
+								<div
+									class="pb-5"
+									data-wizard-type="step-content"
+									data-wizard-state="current"
+								>
+									<!--begin::Input-->
+									<div class="row">
+										<div class="col-md-6">
+											<div
+												class="form-group fv-plugins-icon-container"
+											>
+												<label>Evenement : </label>
+												<select
+													name="address1"
+													class="form-control form-control-solid form-control-lg"
+												>
+                                                <option value="" disabled>--Select option--</option>
+													<option value="">
+														evenement 1
+													</option>
+													<option value="">
+														evenement 2
+													</option>
+												</select>
+
+												<div
+													class="fv-plugins-message-container"
+												></div>
+											</div>
+										</div>
+
+										<div class="col-md-6">
+											<div
+												class="form-group fv-plugins-icon-container"
+											>
+												<label
+													>Statut :
+												</label>
+												<select
+													name="address1"
+													class="form-control form-control-solid form-control-lg"
+												>
+                                                <option value="" disabled>--Select option--</option>
+													<option value="">
+														statut 1
+													</option>
+													<option value="">
+														statut 2
+													</option>
+												</select>
+												<div
+													class="fv-plugins-message-container"
+												></div>
+											</div>
+										</div>
+									</div>
+
+									<div class="row">
+										<div class="col-md-6">
+											<div
+												class="form-group fv-plugins-icon-container"
+											>
+												<label
+													>Jugement :
+												</label>
+												<select
+													name="address1"
+													class="form-control form-control-solid form-control-lg"
+												>
+                                                <option value="" disabled>--Select option--</option>
+													<option value="">
+														jugement 1
+													</option>
+													<option value="">
+														jugement 2
+													</option>
+												</select>
+
+												<div
+													class="fv-plugins-message-container"
+												></div>
+											</div>
+										</div>
+
+										<div class="col-md-6">
+											<div
+												class="form-group fv-plugins-icon-container"
+											>
+												<label>
+													Avocat :
+												</label>
+												<select
+													name="address1"
+													class="form-control form-control-solid form-control-lg"
+												>
+                                                <option value="" disabled>--Select option--</option>
+													<option value="">
+														avocat 1
+													</option>
+													<option value="">
+														avocat 2
+													</option>
+												</select>
+												<div
+													class="fv-plugins-message-container"
+												></div>
+											</div>
+										</div>
+									</div>
+
+									<!--end::Input-->
+								</div>
+								<!--end::Wizard Step 1-->
+
+								<!--begin::Wizard Actions-->
+								<div class="kt-portlet__heads">
+									<div
+										class="kt-portlet__head-label"
+										align="right"
+									>
+										<button
+											href="javascript:; "
+											(click)="back()"
+											_ngcontent-dkp-c41=""
+											class="btn btn-secondary btn-md btn-tall btn-wide kt-font-bold kt-font-transform-u"
+										>
+											<i
+												_ngcontent-dkp-c41=""
+												class="la la-recycle"
+											></i>
+											Retour
+										</button>
+										<button
+											_ngcontent-dkp-c41=""
+											class="btn btn-success btn-md btn-tall btn-wide kt-font-bold kt-font-transform-u"
+											type="reset"
+										>
+											<i
+												_ngcontent-dlp-c41
+												class="icon la la-floppy-o"
+											></i>
+											Enregistrer
+										</button>
+									</div>
+								</div>
+								<div class="espace_bloc"></div>
+							</form>
+							<!--end::Wizard Actions-->
+						</div>
+						<!--end::Wizard Form-->
+					</div>
+					<!--end::Wizard Body-->
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

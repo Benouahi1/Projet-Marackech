@@ -1,0 +1,316 @@
+<div class="kt-portlet">
+	<div class="kt-portlet__head">
+		<div class="kt-portlet__head-label">
+			<h2 class="kt-portlet__head-title">Liste des Factures</h2>
+		</div>
+	</div>
+	<div class="example-header col-md-4">
+		<i class="flaticon-search-magnifier-interface-symbol text-dark"></i
+		>&nbsp;
+		<mat-form-field>
+			<input
+				matInput
+				(keyup)="applyFilter($event.target.value)"
+				placeholder="{{ 'PAGES.GENERAL.FILTER' | translate }}"
+			/>
+		</mat-form-field>
+	</div>
+
+	<nav ngbNav #nav="ngbNav" class="nav-pills">
+		<ng-container ngbNavItem>
+			<a ngbNavLink>Payé</a>
+			<ng-template ngbNavContent>
+				<table
+					id="exportData"
+					mat-table
+					[dataSource]="dataSource"
+					class="mat-elevation-z8 w-100"
+					matSort
+				>
+					<ng-container matColumnDef="NUM">
+						<th
+							colspan="3"
+							mat-header-cell
+							*matHeaderCellDef
+							mat-sort-header
+						>
+							N°
+						</th>
+						<td colspan="3" mat-cell *matCellDef="let row">
+							{{ row.NUM }}
+						</td>
+					</ng-container>
+					<ng-container matColumnDef="N_RECU">
+						<th
+							colspan="3"
+							mat-header-cell
+							*matHeaderCellDef
+							mat-sort-header
+						>
+							N° du recu
+						</th>
+						<td colspan="3" mat-cell *matCellDef="let row">
+							{{ row.N_RECU }}
+						</td>
+					</ng-container>
+					<ng-container matColumnDef="TOTAL">
+						<th
+							colspan="3"
+							mat-header-cell
+							*matHeaderCellDef
+							mat-sort-header
+						>
+							Total à payer
+						</th>
+						<td colspan="3" mat-cell *matCellDef="let row">
+							{{ row.TOTAL }}
+						</td>
+					</ng-container>
+					<ng-container matColumnDef="MONTANT_T_M">
+						<th
+							colspan="3"
+							mat-header-cell
+							*matHeaderCellDef
+							mat-sort-header
+						>
+							Montant de la taxe
+						</th>
+						<td colspan="3" mat-cell *matCellDef="let row">
+							{{ row.MONTANT_T_M }}
+						</td>
+					</ng-container>
+					<ng-container matColumnDef="DATE">
+						<th
+							colspan="3"
+							mat-header-cell
+							*matHeaderCellDef
+							mat-sort-header
+						>
+							Date de réglement
+						</th>
+						<td colspan="3" mat-cell *matCellDef="let row">
+							{{ row.DATE }}
+						</td>
+					</ng-container>
+					<ng-container matColumnDef="STATUT">
+						<th
+							colspan="3"
+							mat-header-cell
+							*matHeaderCellDef
+							mat-sort-header
+						>
+							Statut
+						</th>
+						<td
+							colspan="3"
+							class="text-danger"
+							mat-cell
+							*matCellDef="let row"
+						>
+							{{ row.STATUT }}
+						</td>
+					</ng-container>
+					<ng-container matColumnDef="actions">
+						<th
+							mat-header-cell
+							*matHeaderCellDef
+							mat-sort-header
+							class="action"
+						>
+							Action
+						</th>
+						<td
+							mat-cell
+							*matCellDef="let row"
+							class="actionsBtn action"
+						>
+							<button
+								type="button"
+								(click)="Details()"
+								class="btn btn-sm btn-clean btn-icon btn-success btn-icon-md btn_table_show"
+								matTooltip="{{
+									'PAGES.GENERAL.DETAILS' | translate
+								}}"
+							>
+								<i class="icon la la-search-plus"></i>
+							</button>
+						</td>
+					</ng-container>
+
+					<tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+					<tr
+						mat-row
+						*matRowDef="let row; columns: displayedColumns"
+					></tr>
+				</table>
+			</ng-template>
+		</ng-container>
+		<ng-container ngbNavItem>
+			<a ngbNavLink>Non payé</a>
+			<ng-template ngbNavContent>
+				<table
+					id="exportData"
+					mat-table
+					[dataSource]="dataSource2"
+					class="mat-elevation-z8 w-100"
+					matSort
+				>
+					<ng-container matColumnDef="NUM">
+						<th
+							colspan="3"
+							mat-header-cell
+							*matHeaderCellDef
+							mat-sort-header
+						>
+							N°
+						</th>
+						<td colspan="3" mat-cell *matCellDef="let row">
+							{{ row.NUM }}
+						</td>
+					</ng-container>
+					<ng-container matColumnDef="N_RECU">
+						<th
+							colspan="3"
+							mat-header-cell
+							*matHeaderCellDef
+							mat-sort-header
+						>
+							N° du recu
+						</th>
+						<td colspan="3" mat-cell *matCellDef="let row">
+							{{ row.N_RECU }}
+						</td>
+					</ng-container>
+					<ng-container matColumnDef="TOTAL">
+						<th
+							colspan="3"
+							mat-header-cell
+							*matHeaderCellDef
+							mat-sort-header
+						>
+							Total à payer
+						</th>
+						<td colspan="3" mat-cell *matCellDef="let row">
+							{{ row.TOTAL }}
+						</td>
+					</ng-container>
+					<ng-container matColumnDef="MONTANT_T_M">
+						<th
+							colspan="3"
+							mat-header-cell
+							*matHeaderCellDef
+							mat-sort-header
+						>
+							Montant de la taxe
+						</th>
+						<td colspan="3" mat-cell *matCellDef="let row">
+							{{ row.MONTANT_T_M }}
+						</td>
+					</ng-container>
+					<ng-container matColumnDef="DATE">
+						<th
+							colspan="3"
+							mat-header-cell
+							*matHeaderCellDef
+							mat-sort-header
+						>
+							Date de réglement
+						</th>
+						<td colspan="3" mat-cell *matCellDef="let row">
+							{{ row.DATE }}
+						</td>
+					</ng-container>
+					<ng-container matColumnDef="STATUT">
+						<th
+							colspan="3"
+							mat-header-cell
+							*matHeaderCellDef
+							mat-sort-header
+						>
+							Statut
+						</th>
+						<div>
+							<td
+								colspan="3"
+								class="text-danger"
+								mat-cell
+								*matCellDef="let row"
+							>
+								{{ row.STATUT }}
+							</td>
+						</div>
+					</ng-container>
+					<ng-container matColumnDef="actions">
+						<th
+							mat-header-cell
+							*matHeaderCellDef
+							mat-sort-header
+							class="action"
+						>
+							Action
+						</th>
+						<td
+							mat-cell
+							*matCellDef="let row"
+							class="actionsBtn action"
+						>
+							<button
+								type="button"
+								(click)="Details()"
+								class="btn btn-sm btn-clean btn-icon btn-success btn-icon-md btn_table_show"
+								matTooltip="{{
+									'PAGES.GENERAL.DETAILS' | translate
+								}}"
+							>
+								<i class="icon la la-search-plus"></i>
+							</button>
+						</td>
+					</ng-container>
+
+					<tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+					<tr
+						mat-row
+						*matRowDef="let row; columns: displayedColumns"
+					></tr>
+				</table>
+			</ng-template>
+		</ng-container>
+	</nav>
+
+	<div [ngbNavOutlet]="nav" class="mt-2"></div>
+
+	<div
+		*ngIf="dataSource.data.length == 0 && isLoading == false"
+		style="
+			display: flex;
+			justify-content: center;
+			padding: 2%;
+			color: orangered;
+		"
+	>
+		{{ "PAGES.GENERAL.NO_RECORDS" | translate }}
+	</div>
+	<mat-paginator
+		*ngIf="dataSource != undefined && dataSource.data != undefined"
+		[length]="dataSource.data.length"
+		[pageSize]="5"
+		[pageIndex]="0"
+		[pageSizeOptions]="[5, 10, 50]"
+		showFirstLastButtons
+	></mat-paginator>
+
+	<!-- <div class="kt-portlet__heads">
+		<div class="kt-portlet__head-label" align="right">
+			<button
+				href="javascript:; "
+				(click)="EtapeDernier()"
+				_ngcontent-dkp-c41=""
+				class="btn btn-secondary btn-md btn-tall btn-wide kt-font-bold kt-font-transform-u"
+			>
+				<i _ngcontent-dkp-c41="" class="la la-recycle"></i>
+				Retour
+			</button>
+		</div>
+	</div>
+	<div class="espace_bloc"></div> -->
+</div>

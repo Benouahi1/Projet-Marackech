@@ -1,0 +1,24 @@
+.mat-paginator-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    min-height: 56px;
+    padding: 0 8px;
+    flex-wrap: wrap-reverse;
+    width: 100%;
+    direction: ltr;
+}
+
+.mat-paginator-page-size-label {
+    margin: 0 4px;
+}
+
+.mat-paginator-page-size-select {
+    margin: 6px 4px 0 4px;
+    width: 56px;
+}
+
+::ng-deep .paginator .mat-select-value {
+    color: #646c9a !important;
+    text-align: center !important;
+}

@@ -1,0 +1,184 @@
+<div class="kt-portlet">
+	<div class="kt-portlet__head">
+		<div class="kt-portlet__head-label">
+			<span class="kt-portlet__head-icon">
+				<i class="flaticon-search-magnifier-interface-symbol"></i>
+			</span>
+			<div class="col-md-4">
+				<mat-form-field>
+					<input
+						matInput
+						placeholder="{{ 'PAGES.GENERAL.FILTER' | translate }}"
+					/>
+				</mat-form-field>
+			</div>
+		</div>
+		<div class="kt-portlet__head-toolbar">
+			<div class="kt-portlet__head-wrapper">
+				<div class="kt-portlet__head-actions">
+
+
+					<a (click)="Nouveau()"
+						href="javascript:; "
+						class="btn btn-success btn-elevate btn-icon-sm"
+					>
+						<i class="la la-plus"></i>
+						Nouveau
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+	<table
+		id="exportDataSub"
+		mat-table
+		[dataSource]="dataSource"
+		class="mat-elevation-z8"
+		matSort
+	>
+		<!-- note Column -->
+		<ng-container matColumnDef="PP">
+			<th mat-header-cell *matHeaderCellDef mat-sort-header>P.P</th>
+			<td mat-cell *matCellDef="let row">
+				P1
+			</td>
+			<td mat-cell *matCellDef="let row">
+				P2
+			</td>
+			<td mat-cell *matCellDef="let row">
+				P3
+			</td>
+		</ng-container>
+		<ng-container matColumnDef="A1">
+			<th mat-header-cell *matHeaderCellDef mat-sort-header>A1</th>
+			<td mat-cell *matCellDef="let row">
+				0%
+			</td>
+			<td mat-cell *matCellDef="let row">
+				5%
+			</td>
+			<td mat-cell *matCellDef="let row">
+				20%
+			</td>
+		</ng-container>
+		<ng-container matColumnDef="A2">
+			<th mat-header-cell *matHeaderCellDef mat-sort-header>
+				A2
+			</th>
+			<td mat-cell *matCellDef="let row">
+				15%
+			</td>
+			<td mat-cell *matCellDef="let row">
+				15%
+			</td>
+			<td mat-cell *matCellDef="let row">
+				15%
+			</td>
+		</ng-container>
+
+		<ng-container matColumnDef="A3">
+			<th mat-header-cell *matHeaderCellDef mat-sort-header>A3</th>
+			<td mat-cell *matCellDef="let row">
+				15%
+			</td>
+			<td mat-cell *matCellDef="let row">
+				15%
+			</td>
+			<td mat-cell *matCellDef="let row">
+				15%
+			</td>
+		</ng-container>
+
+        <ng-container matColumnDef="A4">
+			<th mat-header-cell *matHeaderCellDef mat-sort-header>A4</th>
+			<td mat-cell *matCellDef="let row">
+				15%
+			</td>
+			<td mat-cell *matCellDef="let row">
+				15%
+			</td>
+			<td mat-cell *matCellDef="let row">
+				15%
+			</td>
+		</ng-container>
+		<ng-container matColumnDef="A5">
+			<th mat-header-cell *matHeaderCellDef mat-sort-header>A5</th>
+			<td mat-cell *matCellDef="let row">
+				15%
+			</td><td mat-cell *matCellDef="let row">
+				15%
+			</td><td mat-cell *matCellDef="let row">
+				15%
+			</td>
+		</ng-container>
+
+		<!-- Action Column -->
+		<ng-container matColumnDef="actions">
+			<th mat-header-cell *matHeaderCellDef mat-sort-header>Action</th>
+			<td mat-cell *matCellDef="let row">
+				<button
+					href="javascript:;"
+					(click)="Details()"
+					type="button"
+					class="btn btn-sm btn-clean btn-icon btn-success btn-icon-md btn_table_show"
+					matTooltip="{{ 'PAGES.GENERAL.DETAILS' | translate }}"
+				>
+					<i class="icon la la-search-plus"></i>
+				</button>
+				<button
+					type="button"
+					(click)="Edit()"
+					class="btn btn-sm btn-clean btn-icon btn-warning btn-icon-md btn_table_edit"
+					matTooltip="{{ 'PAGES.GENERAL.EDIT' | translate }}"
+				>
+					<i class="icon la la-edit"></i>
+				</button>
+				<button
+					type="button"
+					(click)="deleteSubvention(row.id)"
+					class="btn btn-sm btn-clean btn-icon btn-danger btn-icon-md btn_table_delete"
+					matTooltip="{{ 'PAGES.GENERAL.DELETE' | translate }}"
+				>
+					<i class="icon la la-trash"></i>
+				</button>
+			</td>
+		</ng-container>
+		<tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+		<tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+	</table>
+	<div
+		*ngIf="dataSource.data.length == 0 && isLoading == false"
+		style="
+			display: flex;
+			justify-content: center;
+			padding: 2%;
+			color: orangered;
+		"
+	>
+		{{ "PAGES.GENERAL.NO_RECORDS" | translate }}
+	</div>
+	<mat-card
+		*ngIf="isLoading"
+		style="display: flex; justify-content: center; align-items: center"
+	>
+		<mat-progress-spinner
+			color="primary"
+			mode="indeterminate"
+			diameter="50"
+		>
+		</mat-progress-spinner>
+	</mat-card>
+
+	<mat-paginator
+		*ngIf="dataSource != undefined && dataSource.data != undefined"
+		[length]="dataSource.data.length"
+		[pageSize]="5"
+		[pageIndex]="0"
+		[pageSizeOptions]="[5, 10, 50]"
+		showFirstLastButtons
+	></mat-paginator>
+	<hr />
+</div>

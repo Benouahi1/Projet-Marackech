@@ -1,0 +1,206 @@
+<div class="kt-portlet">
+	<div class="kt-portlet__head">
+		<div class="kt-portlet__head-label">
+			<h2 class="kt-portlet__head-title">
+				Liste des affaires judiciaires
+			</h2>
+		</div>
+		<div class="kt-portlet__head-toolbar">
+			<div class="kt-portlet__head-wrapper">
+				<div class="kt-portlet__head-actions">
+					<a
+						href="javascript:; "
+						(click)="add()"
+						class="btn btn-success btn-elevate btn-icon-sm"
+					>
+						<i class="la la-plus"></i>
+						Ajouter
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="example-header col-md-4">
+		<i class="flaticon-search-magnifier-interface-symbol text-dark"></i
+		>&nbsp;
+		<mat-form-field>
+			<input
+				matInput
+				(keyup)="applyFilter($event.target.value)"
+				placeholder="{{ 'PAGES.GENERAL.FILTER' | translate }}"
+			/>
+		</mat-form-field>
+	</div>
+
+	<table
+		id="exportData"
+		mat-table
+		[dataSource]="dataSource"
+		class="mat-elevation-z8 w-100"
+		matSort
+	>
+		<ng-container matColumnDef="NUM">
+			<th colspan="3" mat-header-cell *matHeaderCellDef mat-sort-header>
+				N°
+			</th>
+			<td colspan="3" mat-cell *matCellDef="let row">
+				{{row.NUM}}
+			</td>
+		</ng-container>
+		<ng-container matColumnDef="CIN_D">
+			<th colspan="3" mat-header-cell *matHeaderCellDef mat-sort-header>
+				CIN(Demandeur)
+			</th>
+			<td colspan="3" mat-cell *matCellDef="let row">
+				{{row.CIN_D}}
+			</td>
+		</ng-container>
+		<ng-container matColumnDef="CIN_P">
+			<th colspan="3" mat-header-cell *matHeaderCellDef mat-sort-header>
+				CIN(Partie Défendresse)
+			</th>
+			<td colspan="3" mat-cell *matCellDef="let row">
+				{{row.CIN_P}}
+			</td>
+		</ng-container>
+		<ng-container matColumnDef="OBJET">
+			<th colspan="3" mat-header-cell *matHeaderCellDef mat-sort-header>
+				Objet
+			</th>
+			<td colspan="3" mat-cell *matCellDef="let row">
+				{{row.OBJET}}
+			</td>
+		</ng-container>
+		<ng-container matColumnDef="DATE">
+			<th colspan="3" mat-header-cell *matHeaderCellDef mat-sort-header>
+				Date de création
+			</th>
+			<td colspan="3" mat-cell *matCellDef="let row">
+				{{row.DATE}}
+			</td>
+		</ng-container>
+		<ng-container matColumnDef="STATUT">
+			<th colspan="3" mat-header-cell *matHeaderCellDef mat-sort-header>
+				Statut
+			</th>
+			<td colspan="3" mat-cell *matCellDef="let row">
+				{{row.STATUT}}
+			</td>
+		</ng-container>
+		<ng-container matColumnDef="DESCRIPTION">
+			<th colspan="3" mat-header-cell *matHeaderCellDef mat-sort-header>
+				Description courte
+			</th>
+			<td colspan="3" mat-cell *matCellDef="let row">
+				{{row.DESCRIPTION}}
+			</td>
+		</ng-container>
+		<ng-container matColumnDef="REMARQUE">
+			<th colspan="3" mat-header-cell *matHeaderCellDef mat-sort-header>
+				Remarque
+			</th>
+			<td colspan="3" mat-cell *matCellDef="let row">
+				{{row.REMARQUE}}
+			</td>
+		</ng-container>
+		<ng-container matColumnDef="AVOCAT">
+			<th colspan="3" mat-header-cell *matHeaderCellDef mat-sort-header>
+				Avocat
+			</th>
+			<td colspan="3" mat-cell *matCellDef="let row">
+				{{row.AVOCAT}}
+			</td>
+		</ng-container>
+		<ng-container matColumnDef="PIECE_JOINTES">
+			<th colspan="3" mat-header-cell *matHeaderCellDef mat-sort-header>
+				Pièce jointes
+			</th>
+			<td colspan="3" mat-cell *matCellDef="let row">
+				{{row.PIECE_JOINTES}}
+			</td>
+		</ng-container>
+		<ng-container matColumnDef="actions">
+			<th
+				mat-header-cell
+				*matHeaderCellDef
+				mat-sort-header
+				class="action"
+			>
+				Action
+			</th>
+			<td mat-cell *matCellDef="let row" class="actionsBtn action">
+				<button
+					href="javascript:;"
+					(click)="Details()"
+					type="button"
+					class="btn btn-sm btn-clean btn-icon btn-success btn-icon-md btn_table_show"
+					matTooltip="{{ 'PAGES.GENERAL.DETAILS' | translate }}"
+				>
+					<i class="icon la la-search-plus"></i>
+				</button>
+				<button
+					href="javascript:;"
+					(click)="Edit()"
+					type="button"
+					class="btn btn-sm btn-clean btn-icon btn-warning btn-icon-md btn_table_edit"
+					matTooltip="{{ 'PAGES.GENERAL.EDIT' | translate }}"
+				>
+					<i class="icon la la-edit"></i>
+				</button>
+				<button
+					type="button"
+					(click)="deleteAssociation(row.id)"
+					class="btn btn-sm btn-clean btn-icon btn-danger btn-icon-md btn_table_delete"
+					matTooltip="{{ 'PAGES.GENERAL.DELETE' | translate }}"
+				>
+					<i class="icon la la-trash"></i>
+				</button>
+				<button
+					href="javascript:;"
+					(click)="Archiver(row.id)"
+					type="button"
+					class="btn btn-sm btn-clean btn-icon btn-icon-md btn-outline-secondary"
+					matTooltip="Archiver"
+				>
+					<i class="fa fa-archive text-secondary"></i>
+				</button>
+			</td>
+		</ng-container>
+		<tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+		<tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+	</table>
+
+	<div
+		*ngIf="dataSource.data.length == 0 && isLoading == false"
+		style="
+			display: flex;
+			justify-content: center;
+			padding: 2%;
+			color: orangered;
+		"
+	>
+		{{ "PAGES.GENERAL.NO_RECORDS" | translate }}
+	</div>
+	<mat-paginator
+		*ngIf="dataSource != undefined && dataSource.data != undefined"
+		[length]="dataSource.data.length"
+		[pageSize]="5"
+		[pageIndex]="0"
+		[pageSizeOptions]="[5, 10, 50]"
+		showFirstLastButtons
+	></mat-paginator>
+
+	<!-- <div class="text-right justify-content-center mt-5 pt-10">
+		<div>
+			<a
+				href="javascript:; "
+				(click)="EtapeDernier()"
+				type="button"
+				class="btn btn-secondary btn-md btn-tall btn-wide kt-font-bold kt-font-transform-u"
+			>
+				<i class="la la-recycle"></i>
+				Retour
+			</a>
+		</div>
+	</div> -->
+</div>

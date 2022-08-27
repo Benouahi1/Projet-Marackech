@@ -1,0 +1,69 @@
+<!--begin::Body-->
+<div class="kt-login__body">
+    <!--begin::Signin-->
+    <div class="kt-login__form">
+        <div class="kt-login__title">
+            <h3>{{ 'AUTH.LOGIN.SIGNIN' | translate }}</h3>
+        </div>
+
+        <!-- <kt-auth-notice></kt-auth-notice> -->
+
+        <!--begin::Form-->
+        <form class="kt-form login_kt-form" [formGroup]="loginForm" autocomplete="off">
+            <div class="form-group">
+                <mat-form-field>
+                    <mat-label>{{ 'AUTH.INPUT.LOGIN' | translate }}</mat-label>
+                    <input matInput type="username" placeholder="{{ 'AUTH.INPUT.LOGIN' | translate }}" formControlName="username" autocomplete="off" />
+                    <mat-error *ngIf="isControlHasError('username','required')">
+                        <strong>{{ 'AUTH.VALIDATION.REQUIRED_FIELD' | translate }}</strong>
+                    </mat-error>
+                    <mat-error *ngIf="isControlHasError('username','username')">
+                        <strong>{{ 'AUTH.VALIDATION.INVALID_FIELD' | translate }}</strong>
+                    </mat-error>
+                    <mat-error *ngIf="isControlHasError('username','minlength')">
+                        <strong>{{ 'AUTH.VALIDATION.MIN_LENGTH_FIELD' | translate }} 3</strong>
+                    </mat-error>
+                    <mat-error *ngIf="isControlHasError('username','maxlength')">
+                        <strong>{{ 'AUTH.VALIDATION.MAX_LENGTH_FIELD' | translate }} 320</strong>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="form-group">
+                <mat-form-field>
+                    <mat-label>{{ 'AUTH.INPUT.PASSWORD' | translate }}</mat-label>
+                    <input matInput type="password" placeholder="{{ 'AUTH.INPUT.PASSWORD' | translate }}" formControlName="password" autocomplete="off" />
+                    <mat-error *ngIf="isControlHasError('password','required')">
+                        <strong>{{ 'AUTH.VALIDATION.REQUIRED_FIELD' | translate }}</strong>
+                    </mat-error>
+                    <mat-error *ngIf="isControlHasError('password','minlength')">
+                        <strong>{{ 'AUTH.VALIDATION.MIN_LENGTH_FIELD' | translate }} 3</strong>
+                    </mat-error>
+                    <mat-error *ngIf="isControlHasError('password','maxlength')">
+                        <strong>{{ 'AUTH.VALIDATION.MAX_LENGTH_FIELD' | translate }} 100</strong>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="kt-margin-top-15">
+                <a href="javascript:;" routerLink="/auth/forgot-password" class="kt-login__btn-danger">
+                    <i class="fas fa-unlock-alt"></i> {{ 'AUTH.GENERAL.FORGOT_BUTTON' | translate }}
+                </a>
+            </div>
+            <!--begin::Action-->
+            <div class="kt-login__actions">
+                <button routerLink="/pages/Programme/list-programme" [ngClass]="{'kt-spinner kt-spinner--right kt-spinner--md kt-spinner--light': loading}" id="kt_login_signin_submit" class="btn btn-success btn-elevate kt-login__btn-primary">{{ 'AUTH.LOGIN.BUTTON' | translate }}</button>
+            </div>
+			<!--end::Action-->
+			<!-- info ::: alert desactiver  -->
+            <div class="alert-container" id='noAccess'>
+                <div>
+                    <ngb-alert type="custom" [dismissible]="false">
+                        اسم المستخدم أو كلمة المرور غير صحيحة <i class="fas fa-exclamation-triangle"></i>
+                    </ngb-alert>
+                </div>
+            </div>
+        </form>
+        <!--end::Form-->
+    </div>
+    <!--end::Signin-->
+</div>
+<!--end::Body-->

@@ -1,0 +1,55 @@
+<div class="kt-portlet__body">
+	<div class="row">
+		<mat-radio-group (change)="selectionChanged($event)">
+			<mat-radio-button value="pie">
+				<i class="flaticon2-pie-chart-1"></i>
+			</mat-radio-button>
+			<mat-radio-button [checked]="true" value="doughnut">
+				<i class="flaticon2-pie-chart-2"></i>
+			</mat-radio-button>
+			<mat-radio-button value="bar">
+				<i class="flaticon2-poll-symbol"></i>
+			</mat-radio-button>
+			<mat-radio-button value="line">
+				<i class="flaticon2-analytics"></i>
+			</mat-radio-button>
+		</mat-radio-group>
+	</div>
+	<br />
+	<div class="row">
+		<div class="col-md-5 show_port">
+			<label> N° : </label>
+			<select
+				name="address1"
+				class="form-control form-control-solid form-control-lg"
+			>
+				<option value="">1</option>
+				<option value="">2</option>
+			</select>
+		</div>
+
+		<div class="col-md-5">
+			<mat-radio-group aria-label="Select an option">
+				<mat-radio-button value="1" checked="true"
+					>Aperçu le numéro de véhicule</mat-radio-button
+				>
+				<mat-radio-button value="2"
+					>Aperçu de l'historique du véhicule</mat-radio-button
+				>
+				<mat-radio-button value="3"
+					>Rapport par utilisateur</mat-radio-button
+				>
+			</mat-radio-group>
+		</div>
+	</div>
+	<br />
+	<div class="row">
+		<div class="col-md-12 show_port">
+			<div class="col-md-12 show_port">
+				<div Style="pointer-events: none;">
+					<canvas id="canvas9"></canvas>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

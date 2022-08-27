@@ -1,0 +1,425 @@
+<!--begin::Form-->
+
+<div autocomplete="off">
+	<!-- {{addForm.value |json}} -->
+	<div class="kt-portlet portlet-3">
+		<div class="kt-portlet__head kt-bg-portlet-3">
+			<div class="kt-portlet__head-label">
+				<h2 class="kt-portlet__head-title kt-font-inverse-brand">
+					{{ "PAGES.PESEE.TITRE_SHOW" | translate }}
+				</h2>
+			</div>
+		</div>
+	</div>
+	<div class="kt-portlet__body">
+		<div class="card card-custom">
+			<div class="card-body p-0">
+				<!--begin::Wizard-->
+				<div
+					class="wizard wizard-1"
+					id="kt_wizard_v1"
+					data-wizard-state="first"
+					data-wizard-clickable="false"
+				>
+					<!--begin::Wizard Nav-->
+					<div class="wizard-nav border-bottom">
+						<div class="wizard-steps p-8 p-lg-10">
+							<!--begin::Wizard Step 1 Nav-->
+							<div
+								class="wizard-step"
+								data-wizard-type="step"
+								data-wizard-state="pending"
+							>
+								<div class="wizard-label">
+									<h3 class="wizard-title">{{ "PAGES.GENERAL.ETAPE" | translate }} 1</h3>
+								</div>
+								<span class="svg-icon svg-icon-xl wizard-arrow">
+									<!--begin::Svg Icon | path:assets/media/svg/icons/Navigation/Arrow-right.svg--><svg
+										xmlns="http://www.w3.org/2000/svg"
+										xmlns:xlink="http://www.w3.org/1999/xlink"
+										width="24px"
+										height="24px"
+										viewBox="0 0 24 24"
+										version="1.1"
+									>
+										<g
+											stroke="none"
+											stroke-width="1"
+											fill="none"
+											fill-rule="evenodd"
+										>
+											<polygon
+												points="0 0 24 0 24 24 0 24"
+											></polygon>
+											<rect
+												fill="#000000"
+												opacity="0.3"
+												transform="translate(12.000000, 12.000000) rotate(-90.000000) translate(-12.000000, -12.000000) "
+												x="11"
+												y="5"
+												width="2"
+												height="14"
+												rx="1"
+											></rect>
+											<path
+												d="M9.70710318,15.7071045 C9.31657888,16.0976288 8.68341391,16.0976288 8.29288961,15.7071045 C7.90236532,15.3165802 7.90236532,14.6834152 8.29288961,14.2928909 L14.2928896,8.29289093 C14.6714686,7.914312 15.281055,7.90106637 15.675721,8.26284357 L21.675721,13.7628436 C22.08284,14.136036 22.1103429,14.7686034 21.7371505,15.1757223 C21.3639581,15.5828413 20.7313908,15.6103443 20.3242718,15.2371519 L15.0300721,10.3841355 L9.70710318,15.7071045 Z"
+												fill="#000000"
+												fill-rule="nonzero"
+												transform="translate(14.999999, 11.999997) scale(1, -1) rotate(90.000000) translate(-14.999999, -11.999997) "
+											></path>
+										</g>
+									</svg>
+									<!--end::Svg Icon-->
+								</span>
+							</div>
+							<!--end::Wizard Step 1 Nav-->
+
+							<!--begin::Wizard Step 2 Nav-->
+							<div
+								class="wizard-step"
+								data-wizard-type="step"
+								data-wizard-state="current"
+							>
+								<div class="wizard-label">
+									<h3 class="wizard-title">{{ "PAGES.GENERAL.ETAPE" | translate }} 2</h3>
+								</div>
+							</div>
+							<!--end::Wizard Step 2 Nav-->
+						</div>
+					</div>
+					<!--end::Wizard Nav-->
+
+					<!--begin::Wizard Body-->
+					<div
+						class="row justify-content-center my-10 px-8 my-lg-15 px-lg-10 mt-4"
+						style="width: 70%; margin-left: 15%"
+					>
+						<div class="col-xl-10 col-xxl-6">
+							<!--begin::Wizard Form-->
+							<form
+								class="form fv-plugins-bootstrap fv-plugins-framework"
+								id="kt_form"
+							>
+								<!--begin::Wizard Step 1-->
+								<div
+									class="pb-5"
+									data-wizard-type="step-content"
+									data-wizard-state="current"
+								>
+									<!--begin::Input-->
+									<div class="row">
+										<div class="col-md-6">
+											<div
+												class="form-group fv-plugins-icon-container"
+											>
+												<label
+													>{{
+														"PAGES.PESEE.NUM_P"
+															| translate
+													}}
+													:
+												</label>
+												<input
+													type="text"
+													class="form-control form-control-solid form-control-lg"
+													name="address1"
+												/>
+
+												<div
+													class="fv-plugins-message-container"
+												></div>
+											</div>
+										</div>
+
+										<div class="col-md-6">
+											<div
+												class="form-group fv-plugins-icon-container"
+											>
+												<label>
+													{{
+														"PAGES.PESEE.TOTAL_P_N"
+															| translate
+													}}
+													:
+												</label>
+												<input
+													type="text"
+													class="form-control form-control-solid form-control-lg"
+													name="address1"
+												/>
+												<div
+													class="fv-plugins-message-container"
+												></div>
+											</div>
+										</div>
+									</div>
+
+									<div class="row">
+										<div class="col-md-6">
+											<div
+												class="form-group fv-plugins-icon-container"
+											>
+												<label>
+													{{
+														"PAGES.PESEE.TYPE"
+															| translate
+													}}
+													:
+												</label>
+												<select
+													name="address1"
+													class="form-control form-control-solid form-control-lg"
+												>
+													<option value="">
+														Type 1
+													</option>
+													<option value="">
+														Type 2
+													</option>
+												</select>
+
+												<div
+													class="fv-plugins-message-container"
+												></div>
+											</div>
+										</div>
+
+										<div class="col-md-6">
+											<div
+												class="form-group fv-plugins-icon-container"
+											>
+												<label>
+													{{
+														"PAGES.PESEE.MONTANT_T_M"
+															| translate
+													}}
+													:
+												</label>
+												<input
+													type="text"
+													class="form-control form-control-solid form-control-lg"
+													name="address1"
+												/>
+												<div
+													class="fv-plugins-message-container"
+												></div>
+											</div>
+										</div>
+									</div>
+
+									<div class="row">
+										<div class="col-md-6">
+											<div
+												class="form-group fv-plugins-icon-container date"
+											>
+												<label>
+													{{
+														"PAGES.PESEE.SOUS_TYPE"
+															| translate
+													}}
+													:
+												</label>
+												<select
+													name="address1"
+													class="form-control form-control-solid form-control-lg"
+												>
+													<option value="">
+														Sous type 1
+													</option>
+													<option value="">
+														Sous type 2
+													</option>
+												</select>
+
+												<div
+													class="fv-plugins-message-container"
+												></div>
+											</div>
+										</div>
+
+										<div class="col-md-6">
+											<div
+												class="form-group fv-plugins-icon-container date"
+											>
+												<label>
+													{{
+														"PAGES.PESEE.TAXE_P"
+															| translate
+													}}
+													:
+												</label>
+												<input
+													type="text"
+													class="form-control form-control-solid form-control-lg"
+													name="address1"
+												/>
+												<div
+													class="fv-plugins-message-container"
+												></div>
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-md-6">
+											<div
+												class="form-group fv-plugins-icon-container date"
+											>
+												<label>
+													{{
+														"PAGES.PESEE.PRIX"
+															| translate
+													}}
+													:
+												</label>
+												<input
+													type="text"
+													class="form-control form-control-solid form-control-lg"
+													name="address1"
+												/>
+
+												<div
+													class="fv-plugins-message-container"
+												></div>
+											</div>
+										</div>
+
+										<div class="col-md-6">
+											<div
+												class="form-group fv-plugins-icon-container date"
+											>
+												<label>
+													{{
+														"PAGES.PESEE.TAXE"
+															| translate
+													}}
+													:
+												</label>
+												<input
+													type="text"
+													class="form-control form-control-solid form-control-lg"
+													name="address1"
+												/>
+												<div
+													class="fv-plugins-message-container"
+												></div>
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-md-6">
+											<div
+												class="form-group fv-plugins-icon-container"
+											>
+												<label>
+													{{
+														"PAGES.PESEE.POIDS_NET"
+															| translate
+													}}
+													:
+												</label>
+												<input
+													type="text"
+													class="form-control form-control-solid form-control-lg"
+													name="address1"
+												/>
+
+												<div
+													class="fv-plugins-message-container"
+												></div>
+											</div>
+										</div>
+
+										<div class="col-md-6">
+											<div
+												class="form-group fv-plugins-icon-container"
+											>
+												<label>
+													{{
+														"PAGES.PESEE.TOTAL"
+															| translate
+													}}
+													:
+												</label>
+												<input
+													type="text"
+													class="form-control form-control-solid form-control-lg"
+													name="address1"
+												/>
+												<div
+													class="fv-plugins-message-container"
+												></div>
+											</div>
+										</div>
+									</div>
+
+									<!--end::Input-->
+								</div>
+								<!--end::Wizard Step 1-->
+
+								<!-- Ajouter Produit -->
+								<div class="d-flex justify-content-center">
+									<button
+										class="btn btn-outline-success has-icon"
+									>
+										<i class="fa fa-plus"></i>
+										{{ "PAGES.PESEE.Ajouter_nouveau_produit" | translate }}
+									</button>
+								</div>
+
+								<div class="kt-portlet__heads m-3">
+									<div
+										class="kt-portlet__head-label"
+										align="right"
+									>
+										<button
+											href="javascript:; "
+											(click)="EtapeDernier()"
+											_ngcontent-dkp-c41=""
+											class="btn btn-secondary btn-md btn-tall btn-wide kt-font-bold kt-font-transform-u"
+										>
+											<i
+												_ngcontent-dkp-c41=""
+												class="la la-recycle"
+											></i>
+											{{ "PAGES.GENERAL.EXIT" | translate }}
+										</button>
+										<button
+											_ngcontent-dkp-c41=""
+											class="btn btn-success btn-md btn-tall btn-wide kt-font-bold kt-font-transform-u"
+											type="reset"
+										>
+											<i
+												_ngcontent-dlp-c41
+												class="icon la la-floppy-o"
+											></i>
+											{{ "PAGES.GENERAL.ENREGISTRER" | translate }}
+										</button>
+									</div>
+								</div>
+								<div class="espace_bloc"></div>
+							</form>
+							<!--end::Wizard Actions-->
+						</div>
+						<!--end::Wizard Form-->
+					</div>
+					<!--end::Wizard Body-->
+
+					<!-- 1 ======================================= -->
+
+					<!-- Email,fax,agence,numCompte -->
+
+					<!-- *********** Information fiche de depot *************-->
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- end :: section form -->
+
+	<!-- end section attachements-->
+
+	<!-- End attachement section-->
+
+	<!--Action Section :: begin-->
+	<!--Action Section :: end-->
+</div>

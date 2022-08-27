@@ -1,0 +1,205 @@
+<!--begin::Form-->
+<!-- <div novalidate [formGroup]="addForm" autocomplete="off"></div> -->
+<div autocomplete="off">
+	<!-- {{addForm.value |json}} -->
+	<div class="kt-portlet portlet-3">
+		<div class="kt-portlet__head kt-bg-portlet-3">
+			<div class="kt-portlet__head-label">
+				<h2 class="kt-portlet__head-title kt-font-inverse-brand">
+					Ajouter une demande de consultation à la liste des affaires
+					judiciare
+				</h2>
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-6">
+			<div class="form-group fv-plugins-icon-container">
+				<mat-form-field class="example-full-width">
+					<label> N CNSS </label>
+					<input
+						matInput
+						type="text"
+						class="form-control"
+						placeholder=""
+					/>
+				</mat-form-field>
+				<div class="fv-plugins-message-container"></div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="form-group fv-plugins-icon-container">
+				<mat-form-field class="example-full-width">
+					<label> Adresse </label>
+					<input
+						matInput
+						type="text"
+						class="form-control"
+						placeholder=""
+					/>
+				</mat-form-field>
+				<div class="fv-plugins-message-container"></div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-6">
+			<div class="form-group fv-plugins-icon-container">
+				<mat-form-field class="example-full-width">
+					<label>Tel </label>
+					<input
+						matInput
+						type="text"
+						class="form-control form-control-solid form-control-lg"
+						name="address1"
+					/>
+				</mat-form-field>
+				<div class="fv-plugins-message-container"></div>
+			</div>
+		</div>
+
+		<div class="col-md-6">
+			<div class="form-group fv-plugins-icon-container">
+				<mat-form-field class="example-full-width">
+					<label> Fax </label>
+					<input
+						matInput
+						type="text"
+						class="form-control form-control-solid form-control-lg"
+						name="address1"
+					/>
+				</mat-form-field>
+				<div class="fv-plugins-message-container"></div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-6">
+			<div class="form-group fv-plugins-icon-container date">
+				<mat-form-field class="example-full-width">
+					<label>Email </label>
+					<input
+						matInput
+						type="text"
+						class="form-control form-control-solid form-control-lg"
+						name="address1"
+					/>
+				</mat-form-field>
+				<div class="fv-plugins-message-container"></div>
+			</div>
+		</div>
+
+		<div class="col-md-6">
+			<div class="form-group fv-plugins-icon-container date">
+				<mat-form-field class="example-full-width">
+					<label>Gérant </label>
+					<input
+						matInput
+						type="text"
+						class="form-control form-control-solid form-control-lg"
+						name="address1"
+					/>
+				</mat-form-field>
+				<div class="fv-plugins-message-container"></div>
+			</div>
+		</div>
+
+		<div class="col-md-6">
+			<div class="form-group fv-plugins-icon-container date">
+				<mat-form-field class="example-full-width">
+					<label>Structure </label>
+					<input
+						matInput
+						type="text"
+						class="form-control form-control-solid form-control-lg"
+						name="address1"
+					/>
+				</mat-form-field>
+				<div class="fv-plugins-message-container"></div>
+			</div>
+		</div>
+
+		<div class="col-md-6">
+			<div class="form-group fv-plugins-icon-container date">
+				<mat-form-field class="example-full-width">
+					<label>Capitale </label>
+					<input
+						matInput
+						type="text"
+						class="form-control form-control-solid form-control-lg"
+						name="address1"
+					/>
+				</mat-form-field>
+				<div class="fv-plugins-message-container"></div>
+			</div>
+		</div>
+
+		<div class="col-md-6">
+			<div class="form-group fv-plugins-icon-container date">
+				<mat-form-field class="example-full-width">
+					<label>Secteur d'activité </label>
+					<input
+						matInput
+						type="text"
+						class="form-control form-control-solid form-control-lg"
+						name="address1"
+					/>
+				</mat-form-field>
+				<div class="fv-plugins-message-container"></div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="form-group fv-plugins-icon-container">
+				<mat-form-field class="example-full-width">
+					<label>Status </label>
+					<mat-select class="form-control">
+						<mat-option [value]="''">status1</mat-option>
+						<mat-option [value]="''">status2</mat-option>
+						<mat-option [value]="''">status3</mat-option>
+					</mat-select>
+				</mat-form-field>
+				<div class="fv-plugins-message-container"></div>
+			</div>
+		</div>
+
+		<div class="col-md-6">
+			<div class="form-group fv-plugins-icon-container date">
+				<mat-form-field class="example-full-width">
+					<label>Modèle </label>
+					<input
+						matInput
+						type="text"
+						class="form-control form-control-solid form-control-lg"
+						name="address1"
+					/>
+				</mat-form-field>
+				<div class="fv-plugins-message-container"></div>
+			</div>
+		</div>
+	</div>
+
+	<div class="kt-portlet__heads">
+		<div class="kt-portlet__head-label" align="right">
+			<button
+				href="javascript:; "
+				(click)="back()"
+				_ngcontent-dkp-c41=""
+				class="btn btn-secondary btn-md btn-tall btn-wide kt-font-bold kt-font-transform-u"
+			>
+				<i _ngcontent-dkp-c41="" class="la la-recycle"></i>
+				Retour
+			</button>
+			<button
+				_ngcontent-dkp-c41=""
+				class="btn btn-success btn-md btn-tall btn-wide kt-font-bold kt-font-transform-u"
+				type="reset"
+			>
+				<i _ngcontent-dlp-c41 class="icon la la-floppy-o"></i>
+				Enregistrer
+			</button>
+		</div>
+	</div>
+</div>

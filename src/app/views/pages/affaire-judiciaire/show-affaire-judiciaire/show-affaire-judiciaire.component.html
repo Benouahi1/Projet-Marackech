@@ -1,0 +1,270 @@
+<!-- begin:: Content -->
+<div *ngIf="details" class="kt-portlet portlet-1">
+	<div class="kt-portlet__head kt-bg-portlet-2">
+		<div class="kt-portlet__head-label">
+			<span class="kt-portlet__head-icon">
+				<i class="flaticon-profile"></i>
+			</span>
+			&nbsp;
+			<h2 class="kt-portlet__head-title kt-font-inverse-brand">
+				{{ "PAGES.AFFAIRE.TITRE_SHOW" | translate }}
+			</h2>
+		</div>
+		<div class="kt-portlet__head-toolbar">
+			<div class="kt-portlet__head-wrapper">
+				<div class="kt-portlet__head-actions">
+					<!-- <button
+						(click)="showHitory()"
+						type="button"
+						class="btn btn-sm btn-clean btn-icon btn-label-primary btn-icon-md"
+						matTooltip="{{ 'PAGES.GENERAL.INFO' | translate }}"
+					>
+						<i class="fas fa-info-circle"></i>
+					</button> -->
+					<a
+						href="javascript:;"
+						(click)="editAffaire()"
+						class="btn btn-warning btn-elevate btn-icon-sm"
+						matTooltip="{{ 'PAGES.GENERAL.EDIT' | translate }}"
+					>
+						<i class="la la-edit"></i>
+						{{ "PAGES.GENERAL.EDIT" | translate }}
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="kt-portlet__body">
+		<div class="row">
+			<!-- <div *ngIf="history" class="col-md-12 show_port history">
+				<table class="table pj" width="100%">
+					<tbody>
+						<tr>
+							<th
+								style="
+									font-size: 10px;
+									color: #0a447d;
+									border-top: none;
+								"
+							>
+								{{ "TRANSLATOR.CREATOR" | translate }} :
+							</th>
+							<td
+								style="font-size: 10px; border-top: none"
+								class="donnee_show"
+							>
+								{{ details.fullName }}
+							</td>
+							<th
+								style="
+									font-size: 10px;
+									color: #0a447d;
+									border-top: none;
+								"
+							>
+								{{ "TRANSLATOR.CREATION_DATE" | translate }} :
+							</th>
+							<td
+								style="font-size: 10px; border-top: none"
+								class="donnee_show"
+							>
+								{{
+									details.dateDebut | date: "dd/MM/yyyy HH:mm"
+								}}
+							</td>
+							<th
+								style="
+									font-size: 10px;
+									color: #0a447d;
+									border-top: none;
+								"
+							>
+								{{ "TRANSLATOR.UPDATE_DATE" | translate }} :
+							</th>
+							<td
+								style="font-size: 10px; border-top: none"
+								class="donnee_show"
+							>
+								{{
+									details.updateDate
+										| date: "dd/MM/yyyy HH:mm"
+								}}
+							</td>
+							<th
+								style="
+									font-size: 10px;
+									color: #0a447d;
+									border-top: none;
+								"
+							>
+								{{ "TRANSLATOR.MODIFICATEUR" | translate }} :
+							</th>
+							<td
+								style="font-size: 10px; border-top: none"
+								class="donnee_show"
+							>
+								{{ details.modificateurUser }}
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div> -->
+			<div *ngIf="history" class="espace_bloc"></div>
+			<div class="col-md-12 show_port">
+				<table class="table pj" width="100%">
+					<tbody>
+						<tr>
+							<th>N° CNSS :</th>
+							<td class="donnee_show">1</td>
+						</tr>
+						<tr>
+							<th>Adresse :</th>
+							<td class="donnee_show">18, rue saada</td>
+
+							<th>Tel :</th>
+							<td class="donnee_show">0650457548</td>
+						</tr>
+
+						<tr>
+							<th>Fax :</th>
+							<td class="donnee_show">12456</td>
+							<th>Email :</th>
+							<td class="donnee_show">omar@gmail.com</td>
+						</tr>
+						<tr>
+							<th>Gérant :</th>
+							<td class="donnee_show">gérant 1</td>
+
+							<th>Structure :</th>
+							<td class="donnee_show">structure 1</td>
+						</tr>
+
+						<tr>
+							<th>Capitale :</th>
+							<td class="donnee_show">capitale 1</td>
+
+							<th>Secteur d'activité :</th>
+							<td class="donnee_show">activité 1</td>
+						</tr>
+						<tr>
+							<th>Status :</th>
+							<td class="donnee_show">status 1</td>
+
+							<th>Modèle :</th>
+							<td class="donnee_show">modèle 1</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<!-- END DETAILS ASSOCIATION -->
+	</div>
+</div>
+<!-- end:: Content -->
+
+<!-- End :: Expansion panel -->
+<!-- begin:: mandat bureau -->
+
+<!-- end:: mandat bureau -->
+<!-- begin:: Content -->
+<div *ngIf="details" class="kt-portlet portlet-1">
+	<div class="kt-portlet__head kt-bg-portlet-2">
+		<div class="kt-portlet__head-label">
+			<span class="kt-portlet__head-icon">
+				<i class="flaticon-suitcase kt-font-inverse-brand"></i>
+			</span>
+			&nbsp;
+			<h2 class="kt-portlet__head-title kt-font-inverse-brand">
+				Espace d'affaire
+			</h2>
+		</div>
+	</div>
+	<div class="kt-portlet__body">
+		<div class="row">
+			<div class="col-md-12 show_port">
+				<!-- BEGIN  ASSOCIATION 360 -->
+				<!-- <div
+					_ngcontent-idd-c40=""
+					class="kt-separator kt-separator--dashed"
+				></div> -->
+				<!-- ************************************************************************ -->
+				<!-- <mat-form-field>
+								<mat-label>Selected tab index</mat-label>
+								<input matInput type="number" [formControl]="selected">
+							</mat-form-field> -->
+				<!-- ************************************************************************ -->
+				
+				<mat-tab-group
+					dynamicHeight
+					[selectedIndex]="selected.value"
+					(selectedIndexChange)="selected.setValue($event)"
+				>
+					<mat-tab *ngFor="let tab of asyncTabs | async">
+						<ng-template mat-tab-label>{{
+							tab.label | translate
+						}}</ng-template>
+						<!-- {{tab.content}} -->
+
+						<!-- SUBVENTION TAB -->
+						<div>
+							<div *ngIf="tab.content == '1'">
+								<div *ngIf="selected.value == 0">
+									<kt-tab-status></kt-tab-status>
+								</div>
+							</div>
+						</div>
+
+						<!-- HEBERGEMENT TAB -->
+						<div>
+							<div *ngIf="tab.content == '2'">
+								<div *ngIf="selected.value == 1">
+									<kt-tab-avocat></kt-tab-avocat>
+								</div>
+							</div>
+						</div>
+
+						<!-- RESTAURATION TAB -->
+						<div>
+							<div *ngIf="tab.content == '3'">
+								<div *ngIf="selected.value == 2">
+									<kt-tab-jugement></kt-tab-jugement>
+								</div>
+							</div>
+						</div>
+
+						<!-- IMPRESSION TAB -->
+						<div>
+							<div *ngIf="tab.content == '4'">
+								<div *ngIf="selected.value == 3">
+									<kt-tab-evenement></kt-tab-evenement>
+								</div>
+							</div>
+						</div>
+					</mat-tab>
+					<!-- <mat-tab label="Grid View">
+								  </mat-tab> -->
+				</mat-tab-group>
+
+				<!-- END ASSOCIATION 360-->
+			</div>
+		</div>
+		<!-- END DETAILS ASSOCIATION -->
+	</div>
+</div>
+<!-- end:: Content -->
+
+<div class="kt-portlet__heads">
+	<div class="kt-portlet__head-label" align="right">
+		<button
+			href="javascript:;"
+			(click)="back()"
+			_ngcontent-dkp-c41=""
+			class="btn btn-secondary btn-md btn-tall btn-wide kt-font-bold kt-font-transform-u"
+		>
+			<i _ngcontent-dkp-c41="" class="la la-recycle"></i>
+			Retour
+		</button>
+	</div>
+</div>
+<div class="espace_bloc"></div>
+<!--Action Section :: end-->

@@ -1,0 +1,197 @@
+<div class="kt-portlet">
+	<div class="kt-portlet__head">
+		<div class="kt-portlet__head-label">
+			<h2 class="kt-portlet__head-title">Liste des événement</h2>
+		</div>
+		<div class="kt-portlet__head-toolbar">
+			<div class="kt-portlet__head-wrapper">
+				<div class="kt-portlet__head-actions">
+					<a
+						href="javascript:; "
+						(click)="Add()"
+						class="btn btn-success btn-md btn-tall btn-wide kt-font-bold kt-font-transform-u"
+					>
+						<i class="la la-plus"></i>
+						Ajouter
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="example-header col-md-4">
+		<i class="flaticon-search-magnifier-interface-symbol text-dark"></i
+		>&nbsp;
+		<mat-form-field>
+			<input
+				matInput
+				(keyup)="applyFilter($event.target.value)"
+				placeholder="{{ 'PAGES.GENERAL.FILTER' | translate }}"
+			/>
+		</mat-form-field>
+	</div>
+
+	<nav ngbNav #nav="ngbNav" class="nav-tabs">
+		<ng-container ngbNavItem>
+			<table
+				id="exportData"
+				mat-table
+				[dataSource]="dataSource3"
+				class="mat-elevation-z8 w-100 col-md-12"
+				matSort
+			>
+				<ng-container matColumnDef="NUM">
+					<th
+						colspan="3"
+						mat-header-cell
+						*matHeaderCellDef
+						mat-sort-header
+					>
+						N°
+					</th>
+					<td colspan="3" mat-cell *matCellDef="let row">1</td>
+				</ng-container>
+				<ng-container matColumnDef="OPERATEUR">
+					<th
+						colspan="3"
+						mat-header-cell
+						*matHeaderCellDef
+						mat-sort-header
+					>
+						Type
+					</th>
+					<td colspan="3" mat-cell *matCellDef="let row">
+						evenement1
+					</td>
+				</ng-container>
+				<ng-container matColumnDef="DATE_P">
+					<th
+						colspan="3"
+						mat-header-cell
+						*matHeaderCellDef
+						mat-sort-header
+					>
+						Date de déclaration
+					</th>
+					<td colspan="3" mat-cell *matCellDef="let row">
+						10/05/2021
+					</td>
+				</ng-container>
+				<ng-container matColumnDef="VEHICULE">
+					<th
+						colspan="3"
+						mat-header-cell
+						*matHeaderCellDef
+						mat-sort-header
+					>
+						Matricule
+					</th>
+					<td colspan="3" mat-cell *matCellDef="let row">1066565</td>
+				</ng-container>
+				<ng-container matColumnDef="MONTANT_T_M">
+					<th
+						colspan="3"
+						mat-header-cell
+						*matHeaderCellDef
+						mat-sort-header
+					>
+						Observation
+					</th>
+					<td colspan="3" mat-cell *matCellDef="let row">
+						observation1
+					</td>
+				</ng-container>
+				<ng-container matColumnDef="actions">
+					<th
+						mat-header-cell
+						*matHeaderCellDef
+						mat-sort-header
+						class="action"
+					>
+						Action
+					</th>
+					<td
+						mat-cell
+						*matCellDef="let row"
+						class="actionsBtn action"
+					>
+						<button
+							href="javascript:;"
+							(click)="Details()"
+							type="button"
+							routerLink="/evenement/show-evenement"
+							class="btn btn-sm btn-clean btn-icon btn-success btn-icon-md btn_table_show"
+							matTooltip="{{
+								'PAGES.GENERAL.DETAILS' | translate
+							}}"
+						>
+							<i class="icon la la-search-plus"></i>
+						</button>
+						<button
+							href="javascript:;"
+							(click)="Edit()"
+							type="button"
+							routerLink="/evenement/edit-evenement"
+							class="btn btn-sm btn-clean btn-icon btn-warning btn-icon-md btn_table_edit"
+							matTooltip="{{ 'PAGES.GENERAL.EDIT' | translate }}"
+						>
+							<i class="icon la la-edit"></i>
+						</button>
+						<button
+							type="button"
+							(click)="deleteAssociation(row.id)"
+							class="btn btn-sm btn-clean btn-icon btn-danger btn-icon-md btn_table_delete"
+							matTooltip="{{
+								'PAGES.GENERAL.DELETE' | translate
+							}}"
+						>
+							<i class="icon la la-trash"></i>
+						</button>
+					</td>
+				</ng-container>
+
+				<tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+				<tr
+					mat-row
+					*matRowDef="let row; columns: displayedColumns"
+				></tr>
+			</table>
+		</ng-container>
+	</nav>
+
+	<div [ngbNavOutlet]="nav" class="mt-2"></div>
+
+	<div
+		*ngIf="dataSource.data.length == 0 && isLoading == false"
+		style="
+			display: flex;
+			justify-content: center;
+			padding: 2%;
+			color: orangered;
+		"
+	>
+		{{ "PAGES.GENERAL.NO_RECORDS" | translate }}
+	</div>
+	<mat-paginator
+		*ngIf="dataSource != undefined && dataSource.data != undefined"
+		[length]="dataSource.data.length"
+		[pageSize]="5"
+		[pageIndex]="0"
+		[pageSizeOptions]="[5, 10, 50]"
+		showFirstLastButtons
+	></mat-paginator>
+
+	<!-- <div class="kt-portlet__heads">
+		<div class="kt-portlet__head-label" align="right">
+			<button
+				href="javascript:; "
+				(click)="EtapeDernier()"
+				_ngcontent-dkp-c41=""
+				class="btn btn-secondary btn-md btn-tall btn-wide kt-font-bold kt-font-transform-u"
+			>
+				<i _ngcontent-dkp-c41="" class="la la-recycle"></i>
+				Retour
+			</button>
+		</div>
+	</div>
+	<div class="espace_bloc"></div> -->
+</div>

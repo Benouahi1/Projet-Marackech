@@ -1,0 +1,266 @@
+<!-- begin:: Content -->
+<div *ngIf="details" class="kt-portlet portlet-1 col-md-12">
+	<div class="kt-portlet__head kt-bg-portlet-2">
+		<div class="kt-portlet__head-label">
+			&nbsp;
+			<h2 class="kt-portlet__head-title kt-font-inverse-brand">
+				{{ "PAGES.PESEE.TITRE_DETAILS" | translate }}
+			</h2>
+		</div>
+	</div>
+</div>
+
+<div class="row justify-content-center">
+	<div *ngIf="details" class="kt-portlet portlet-1 col-md-5">
+		<div class="kt-portlet__head kt-bg-portlet-2">
+			<div class="kt-portlet__head-label">
+				&nbsp;
+				<h2 class="kt-portlet__head-title kt-font-inverse-brand">
+					{{ "PAGES.PERSONNEL.INFO_GENERAL" | translate }}
+				</h2>
+			</div>
+		</div>
+		<div class="kt-portlet__body">
+			<div class="row">
+				<div *ngIf="history" class="espace_bloc"></div>
+				<div class="col-md-12 show_port">
+					<table class="table">
+						<tbody>
+							<tr>
+								<th>{{ "PAGES.PESEE.NUM" | translate }} :</th>
+								<td class="donnee_show">1215454545</td>
+							</tr>
+							<tr>
+								<th>{{ "PAGES.PESEE.DATE" | translate }} :</th>
+								<td class="donnee_show">10/5/2021 à 10:54</td>
+							</tr>
+
+							<tr>
+								<th>{{ "PAGES.PESEE.MATR" | translate }} :</th>
+								<td class="donnee_show">3255654644</td>
+							</tr>
+							<tr>
+								<th>
+									{{ "PAGES.PESEE.CONDUCTEUR" | translate }} :
+								</th>
+								<td class="donnee_show">54656565</td>
+							</tr>
+
+							<tr>
+								<th>
+									{{ "PAGES.PESEE.PROPRIETAIRE" | translate }}
+									:
+								</th>
+								<td class="donnee_show">Nom</td>
+							</tr>
+							<tr>
+								<th>
+									{{ "PAGES.PESEE.PROVENENCE" | translate }} :
+								</th>
+								<td class="donnee_show">45454545454</td>
+							</tr>
+							<tr>
+								<th>
+									{{ "PAGES.PESEE.CARREAU" | translate }} :
+								</th>
+								<td class="donnee_show">3232352565</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div *ngIf="details" class="kt-portlet portlet-1 col-md-5">
+		<div class="kt-portlet__head kt-bg-portlet-2">
+			<div class="kt-portlet__head-label">
+				&nbsp;
+				<h2 class="kt-portlet__head-title kt-font-inverse-brand">
+					{{ "PAGES.PESEE.POIDS" | translate }}
+				</h2>
+			</div>
+		</div>
+		<div class="kt-portlet__body">
+			<div class="row">
+				<div *ngIf="history" class="espace_bloc"></div>
+				<div class="col-md-12 show_port">
+					<table class="table">
+						<tbody>
+							<tr>
+								<th>
+									{{ "PAGES.PESEE.POIDS_E" | translate }} :
+								</th>
+								<td class="donnee_show">102</td>
+							</tr>
+							<tr>
+								<th>
+									{{ "PAGES.PESEE.POIDS_T" | translate }} :
+								</th>
+								<td class="donnee_show">102</td>
+							</tr>
+
+							<tr>
+								<th>
+									{{ "PAGES.PESEE.POIDS_N" | translate }} :
+								</th>
+								<td class="donnee_show">10</td>
+							</tr>
+							<tr>
+								<th>
+									{{ "PAGES.PESEE.POIDS_V" | translate }} :
+								</th>
+								<td class="donnee_show">102</td>
+							</tr>
+
+							<tr>
+								<th>
+									{{ "PAGES.PESEE.NOMBRE_U" | translate }} :
+								</th>
+								<td class="donnee_show">566</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<!-- END DETAILS ASSOCIATION -->
+		</div>
+	</div>
+</div>
+
+<div class="row justify-content-center">
+	<div *ngIf="details" class="kt-portlet portlet-1 col-md-5">
+		<div class="kt-portlet__head kt-bg-portlet-2">
+			<div class="kt-portlet__head-label">
+				&nbsp;
+				<h2 class="kt-portlet__head-title kt-font-inverse-brand">
+					{{ "PAGES.PESEE.MARCHANDISE" | translate }}
+				</h2>
+			</div>
+		</div>
+		<div class="kt-portlet__body">
+			<div class="row">
+				<div *ngIf="history" class="espace_bloc"></div>
+				<div class="col-md-12 show_port">
+					<table class="table">
+						<tbody>
+							<tr>
+								<th>{{ "PAGES.PESEE.TYPE" | translate }} :</th>
+								<td class="donnee_show">Fruit</td>
+							</tr>
+							<tr>
+								<th>
+									{{ "PAGES.PESEE.SOUS_TYPE" | translate }} :
+								</th>
+								<td class="donnee_show"></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<!-- END DETAILS ASSOCIATION -->
+		</div>
+	</div>
+
+	<div *ngIf="details" class="kt-portlet portlet-1 col-md-5">
+		<div class="kt-portlet__head kt-bg-portlet-2">
+			<div class="kt-portlet__head-label">
+				&nbsp;
+				<h2 class="kt-portlet__head-title kt-font-inverse-brand">
+					{{ "PAGES.PESEE.TOTAL_PAYER" | translate }}
+				</h2>
+			</div>
+		</div>
+		<div class="kt-portlet__body">
+			<div class="row">
+				<div *ngIf="history" class="espace_bloc"></div>
+				<div class="col-md-12 show_port">
+					<table class="table">
+						<tbody>
+							<tr>
+								<th>
+									{{ "PAGES.PESEE.TOTAL_P_N" | translate }} :
+								</th>
+								<td class="donnee_show">177</td>
+							</tr>
+							<tr>
+								<th>
+									{{ "PAGES.PESEE.MONTANT_T_M" | translate }}
+									:
+								</th>
+								<td class="donnee_show">7922</td>
+							</tr>
+							<tr>
+								<th>
+									{{ "PAGES.PESEE.TAXE_P" | translate }} :
+								</th>
+								<td class="donnee_show">744</td>
+							</tr>
+							<tr>
+								<th>{{ "PAGES.PESEE.TAXE" | translate }} :</th>
+								<td class="donnee_show">7</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="row justify-content-center">
+	<div *ngIf="details" class="kt-portlet portlet-1 col-md-10">
+		<div class="kt-portlet__head kt-bg-portlet-2">
+			<div class="kt-portlet__head-label">
+				&nbsp;
+				<h2 class="kt-portlet__head-title kt-font-inverse-brand">
+					{{ "PAGES.PESEE.PRODUITS" | translate }}
+				</h2>
+			</div>
+		</div>
+		<div class="kt-portlet__body">
+			<div class="row">
+				<div *ngIf="history" class="espace_bloc"></div>
+				<div class="col-md-12 show_port">
+					<table class="table">
+						<tbody>
+							<tr>
+								<th>{{ "PAGES.PESEE.NUM" | translate }} :</th>
+								<th>Type :</th>
+								<th>Sous type :</th>
+								<th>Prix :</th>
+								<th>Poids net :</th>
+								<th>Total :</th>
+							</tr>
+							<tr>
+								<td class="donnee_show">12</td>
+								<td class="donnee_show">Fruit</td>
+								<td class="donnee_show">Pomme</td>
+								<td class="donnee_show">1,70</td>
+								<td class="donnee_show">67</td>
+								<td class="donnee_show">113.90</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<!-- END DETAILS ASSOCIATION -->
+		</div>
+	</div>
+</div>
+
+<div class="kt-portlet__heads">
+	<div class="kt-portlet__head-label" align="right">
+		<button
+			href="javascript:;"
+			(click)="back()"
+			_ngcontent-dkp-c41=""
+			class="btn btn-secondary btn-md btn-tall btn-wide kt-font-bold kt-font-transform-u"
+		>
+			<i _ngcontent-dkp-c41="" class="la la-recycle"></i>
+			{{ "PAGES.GENERAL.EXIT" | translate }}
+		</button>
+	</div>
+</div>
+<div class="espace_bloc"></div>
+<!-- end:: Content -->

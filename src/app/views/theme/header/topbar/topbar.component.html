@@ -1,0 +1,36 @@
+<!-- begin:: Header Topbar -->
+<div class="kt-header__topbar">
+    <span  style="
+    background: #ff0e3b;
+    padding: 1px 3px 1px 3px;
+    /* width: 100%; */
+    /* height: 100%; */
+    border-radius: 4px;
+    font-size: 9px;
+    /* font-weight: 600; */
+    font-family: monospace;
+    color: #fff;
+    /* position: fixed; */
+    margin: 0px -10px 18px -20px !important;">6</span>
+    <!--begin: Notifications / accessToAoModule -->
+    <kt-notification  [bgImage]="'./assets/media/misc/bg-1.jpg'" [pulse]="false" matTooltip="Alertes affaires" [skin]="'success'" [icon]="'./assets/media/icons/svg/General/Notifications1.svg'" [useSVG]="true"></kt-notification>
+    <!--end: Notifications -->
+
+    <!--begin: jamaati admin -->
+    <kt-quick-action  [iconType]="'warning'" [icon]="'./assets/media/icons/svg/Tools/Tools.svg'" [useSVG]="true" (click)="communication()" matTooltip="Paramétrage"></kt-quick-action>
+    <!--end: jamaati admin -->
+
+    <!--begin: Language bar -->
+    <kt-language-selector [iconType]="'brand'" matTooltip="{{ 'TRANSLATOR.SELECT' | translate }}">
+    </kt-language-selector>
+    <!--end: Language bar -->
+
+    <!--begin: User bar -->
+    <kt-user-profile [greeting]="false" matTooltip="حسابي"></kt-user-profile>
+    <!--end: User bar -->
+
+
+
+
+</div>
+<!-- end:: Header Topbar -->

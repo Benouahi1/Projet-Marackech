@@ -1,0 +1,59 @@
+<!-- begin:: Content -->
+<div class="kt-portlet portlet-1">
+	<div class="kt-portlet__head kt-bg-portlet-1">
+		<div class="kt-portlet__head-label">
+			<h2 class="kt-portlet__head-title kt-font-inverse-brand">
+				Statistiques
+			</h2>
+		</div>
+        <div class="kt-portlet__head-toolbar">
+			<div class="kt-portlet__head-wrapper">
+				<div class="kt-portlet__head-actions">
+					<button
+						href="javascript:; "
+						class="btn btn-success"
+					>
+						génerer
+					</button>
+				</div>
+			</div>
+	</div>
+</div>
+<!-- end::row-content-top -->
+
+<div class="d-flex justify-content-center row">
+	<div class="col-md-8">
+		<div class="kt-portlet">
+			<div class="kt-portlet__body">
+				<div class="row">
+					<mat-radio-group (change)="selectionChanged($event)">
+						<mat-radio-button value="pie">
+							<i class="flaticon2-pie-chart-1"></i>
+						</mat-radio-button>
+						<mat-radio-button value="doughnut">
+							<i class="flaticon2-pie-chart-2"></i>
+						</mat-radio-button>
+						<mat-radio-button [checked]="true" value="bar">
+							<i class="flaticon2-poll-symbol"></i>
+						</mat-radio-button>
+						<mat-radio-button value="line">
+							<i class="flaticon2-analytics"></i>
+						</mat-radio-button>
+					</mat-radio-group>
+				</div>
+				<br />
+				<div class="row">
+					<div class="col-md-12 show_port">
+						<div class="col-md-12 show_port">
+							<!-- begin::chart -->
+							<div Style="pointer-events: none;">
+								<canvas id="canvas"></canvas>
+							</div>
+							<!-- end::chart -->
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

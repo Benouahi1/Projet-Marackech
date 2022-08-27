@@ -1,0 +1,120 @@
+<!-- begin:: Brand -->
+<div
+	class="kt-header__brand kt-grid__item"
+
+	id="kt_header_brand"
+>
+	<div class="kt-header__brand-logo">
+		<a href="javascript:;" routerLink="/">
+			<img
+				alt="logo"
+				src="./assets/media/logos/logo-6-sm.png"
+				class="kt-header__brand-logo-default"
+			/>
+			<img
+				alt="logo"
+				src="./assets/media/logos/logo-6-sm.png"
+				No
+				class="kt-header__brand-logo-sticky"
+			/>
+		</a>
+	</div>
+	<div class="kt-header__brand-nav">
+		<div ngbDropdown class="dropdown">
+			<button
+				class="btn btn-default dropdown-toggle"
+				id="ddlDashboard"
+				ngbDropdownToggle
+				type="button"
+			>
+				Menu Principale
+			</button>
+			<!-- **************************ADIL********************************************************** -->
+
+			<div
+				ngbDropdownMenu
+				class="dropdown-menu dropdown-menu-md"
+				aria-labelledby="ddlDashboard"
+			>
+				<ul class="kt-nav kt-nav--bold kt-nav--md-space kt-nav--v3">
+
+
+						<li
+
+
+						class="kt-nav__item" >
+							<a
+
+							(click)="menuHorService.clickMenu(1)"
+								class="kt-nav__link active"
+								href="javascript:;"
+							>
+								<span class="kt-nav__link-icon"
+									><i class="flaticon-profile"></i
+								></span>
+								<span class="kt-nav__link-text">
+									Prougramme
+								</span>
+							</a>
+						</li>
+						<li
+						class="kt-nav__item"
+						>
+							<a
+								class="kt-nav__link active"
+								(click)="menuHorService.clickMenu(3)"
+								href="javascript:;"
+							>
+								<span class="kt-nav__link-icon"
+									><i class="flaticon-app"></i
+								></span>
+								<span class="kt-nav__link-text">
+									Marcher de Gros
+								</span>
+							</a>
+						</li>
+						<li
+						class="kt-nav__item"
+						>
+							<a
+								class="kt-nav__link active"
+
+								(click)="menuHorService.clickMenu(2)"
+								href="javascript:;"
+							>
+								<span class="kt-nav__link-icon"
+									><i class="flaticon-home-2"></i
+								></span>
+								<span class="kt-nav__link-text">
+									Contencieux
+								</span>
+							</a>
+						</li>
+						<!-- **************************RACHID********************************************************** -->
+
+						<!-- begin::Bureau d'ordre -->
+						<li
+						class="kt-nav__item"
+						>
+							<a
+								class="kt-nav__link active"
+								
+								href="javascript:;"
+							>
+								<span class="kt-nav__link-icon"
+									><i class="flaticon2-mail-1"></i
+								></span>
+								<span class="kt-nav__link-text">
+									RH
+								</span>
+							</a>
+						</li>
+
+
+
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- end:: Brand -->

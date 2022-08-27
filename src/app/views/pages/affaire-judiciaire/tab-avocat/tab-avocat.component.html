@@ -1,0 +1,181 @@
+<div class="kt-portlet">
+	<div class="kt-portlet__head">
+		<div class="kt-portlet__head-label">
+			<span class="kt-portlet__head-icon">
+				<i class="flaticon-search-magnifier-interface-symbol"></i>
+			</span>
+			<div class="col-md-4">
+				<mat-form-field>
+					<input
+						matInput
+						(keyup)="applyFilter($event.target.value)"
+						placeholder="{{ 'PAGES.GENERAL.FILTER' | translate }}"
+					/>
+				</mat-form-field>
+			</div>
+		</div>
+		<div class="kt-portlet__head-toolbar">
+			<div class="kt-portlet__head-wrapper">
+				<div class="kt-portlet__head-actions">
+					<button
+						*ngIf="dataSource.data.length > 0"
+						(click)="exportTable()"
+						type="button"
+						class="btn btn-sm btn-clean btn-icon btn-success btn-icon-md btn_table_show"
+						matTooltip="{{
+							'PAGES.GENERAL.DOWNLOAD' | translate
+						}}&nbsp;"
+					>
+						<i class="flaticon2-download text-success"></i>
+					</button>
+					<a
+						href="javascript:; "
+						(click)="addSubvention()"
+						class="btn btn-success btn-elevate btn-icon-sm"
+					>
+						<i class="la la-plus"></i>
+						Nouveau
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<br />
+	<div class="row">
+		<div class="col-md-4">
+			<div class="form-group">
+				<select
+					name="address1"
+					class="form-control form-control-solid form-control-lg"
+				>
+					<option value="" disabled>--Select Avocat--</option>
+					<option value="">ayoub</option>
+					<option value="">bilal</option>
+					<option value="">ahmed</option>
+				</select>
+				
+				<div class="fv-plugins-message-container"></div>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<button class="btn btn-success p-2">Enregistrer</button>
+		</div>
+	</div>
+
+	<table
+		id="exportDataSub"
+		mat-table
+		[dataSource]="dataSource"
+		class="mat-elevation-z8"
+		matSort
+	>
+		<!-- note Column -->
+		<ng-container matColumnDef="nom">
+			<th mat-header-cell *matHeaderCellDef mat-sort-header>Nom</th>
+			<td mat-cell *matCellDef="let row">
+				{{ row.nom ? row.nom : "-" }}
+			</td>
+		</ng-container>
+		<ng-container matColumnDef="prenom">
+			<th mat-header-cell *matHeaderCellDef mat-sort-header>Prenom</th>
+			<td mat-cell *matCellDef="let row">
+				{{ row.prenom ? row.prenom : "-" }}
+			</td>
+		</ng-container>
+		<ng-container matColumnDef="raison_social">
+			<th mat-header-cell *matHeaderCellDef mat-sort-header>
+				Raison Social
+			</th>
+			<td mat-cell *matCellDef="let row">
+				{{ row.raison_social ? row.raison_social : "-" }}
+			</td>
+		</ng-container>
+
+		<ng-container matColumnDef="cin">
+			<th mat-header-cell *matHeaderCellDef mat-sort-header>CIN</th>
+			<td mat-cell *matCellDef="let row">
+				{{ row.cin }}
+			</td>
+		</ng-container>
+
+		<ng-container matColumnDef="GSM">
+			<th mat-header-cell *matHeaderCellDef mat-sort-header>GSM</th>
+			<td mat-cell *matCellDef="let row">
+				{{ row.GSM }}
+			</td>
+		</ng-container>
+
+		<ng-container matColumnDef="fax">
+			<th mat-header-cell *matHeaderCellDef mat-sort-header>Fax</th>
+			<td mat-cell *matCellDef="let row">
+				{{ row.fax }}
+			</td>
+		</ng-container>
+		<!-- Action Column -->
+		<ng-container matColumnDef="actions">
+			<th mat-header-cell *matHeaderCellDef mat-sort-header></th>
+			<td mat-cell *matCellDef="let row">
+				<button
+					type="button"
+					routerLink="/parametrages/add-type-alert"
+					(click)="DetailSubvention()"
+					class="btn btn-sm btn-clean btn-icon btn-success btn-icon-md btn_table_show"
+					matTooltip="{{ 'PAGES.GENERAL.DETAILS' | translate }}"
+				>
+					<i class="icon la la-search-plus"></i>
+				</button>
+				<button
+					type="button"
+					(click)="editSubvention(row)"
+					class="btn btn-sm btn-clean btn-icon btn-warning btn-icon-md btn_table_edit"
+					matTooltip="{{ 'PAGES.GENERAL.EDIT' | translate }}"
+				>
+					<i class="icon la la-edit"></i>
+				</button>
+				<button
+					type="button"
+					(click)="deleteSubvention(row.id)"
+					class="btn btn-sm btn-clean btn-icon btn-danger btn-icon-md btn_table_delete"
+					matTooltip="{{ 'PAGES.GENERAL.DELETE' | translate }}"
+				>
+					<i class="icon la la-trash"></i>
+				</button>
+			</td>
+		</ng-container>
+		<tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+		<tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+	</table>
+	<div
+		*ngIf="dataSource.data.length == 0 && isLoading == false"
+		style="
+			display: flex;
+			justify-content: center;
+			padding: 2%;
+			color: orangered;
+		"
+	>
+		{{ "PAGES.GENERAL.NO_RECORDS" | translate }}
+	</div>
+	<mat-card
+		*ngIf="isLoading"
+		style="display: flex; justify-content: center; align-items: center"
+	>
+		<mat-progress-spinner
+			color="primary"
+			mode="indeterminate"
+			diameter="50"
+		>
+		</mat-progress-spinner>
+	</mat-card>
+
+	<mat-paginator
+		*ngIf="dataSource != undefined && dataSource.data != undefined"
+		[length]="dataSource.data.length"
+		[pageSize]="5"
+		[pageIndex]="0"
+		[pageSizeOptions]="[5, 10, 50]"
+		showFirstLastButtons
+	></mat-paginator>
+	<hr />
+</div>

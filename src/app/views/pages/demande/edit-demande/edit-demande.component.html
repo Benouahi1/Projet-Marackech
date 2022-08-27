@@ -1,0 +1,644 @@
+<div class="kt-portlet portlet-3">
+	<div class="kt-portlet__head kt-bg-portlet-3">
+		<div class="kt-portlet__head-label">
+			<h2 class="kt-portlet__head-title kt-font-inverse-brand">
+				Modifier une demande de consultation
+			</h2>
+		</div>
+	</div>
+</div>
+
+<mat-horizontal-stepper #stepper>
+	<mat-step label="Etape 1">
+		<div class="row d-flex justify-content-center m-3">
+			<div class="col-2">
+				<h4>Demandeur</h4>
+			</div>
+			<div class="col-2">
+				<label>
+					<input
+						id="r1"
+						[value]="1"
+						[(ngModel)]="isVisible"
+						name="isVisible"
+						type="radio"
+						[checked]="isSelected"
+					/>
+					Physique
+				</label>
+
+				<label class="ml-3">
+					<input
+						[value]="0"
+						[(ngModel)]="isVisible"
+						name="isVisible"
+						type="radio"
+						[checked]="!isSelected"
+					/>
+					Moral
+				</label>
+			</div>
+		</div>
+
+		<div class="showDiv" *ngIf="isVisible == 1">
+			<div class="row">
+				<div class="col-md-6">
+					<div class="form-group fv-plugins-icon-container">
+						<mat-form-field class="example-full-width">
+							<label> Nom </label>
+							<input
+								value="sample text"
+								matInput
+								type="text"
+								class="form-control"
+								placeholder=""
+							/>
+						</mat-form-field>
+						<div class="fv-plugins-message-container"></div>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="form-group fv-plugins-icon-container">
+						<mat-form-field class="example-full-width">
+							<label> Prénom </label>
+							<input
+								value="sample text"
+								matInput
+								type="text"
+								class="form-control"
+								placeholder=""
+							/>
+						</mat-form-field>
+						<div class="fv-plugins-message-container"></div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6">
+					<div class="form-group fv-plugins-icon-container">
+						<mat-form-field class="example-full-width">
+							<label> CIN </label>
+							<input
+								value="sample text"
+								matInput
+								type="text"
+								class="form-control"
+								placeholder=""
+							/>
+						</mat-form-field>
+						<div class="fv-plugins-message-container"></div>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="form-group fv-plugins-icon-container">
+						<mat-form-field class="example-full-width">
+							<label> Adresse </label>
+							<input
+								value="sample text"
+								matInput
+								type="text"
+								class="form-control"
+								placeholder=""
+							/>
+						</mat-form-field>
+						<div class="fv-plugins-message-container"></div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6">
+					<div class="form-group fv-plugins-icon-container">
+						<mat-form-field class="example-full-width">
+							<label> Ville </label>
+							<input
+								value="sample text"
+								matInput
+								type="text"
+								class="form-control"
+								placeholder=""
+							/>
+						</mat-form-field>
+						<div class="fv-plugins-message-container"></div>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="form-group fv-plugins-icon-container">
+						<div class="input-group date">
+							<mat-form-field class="example-full-width">
+								<label> Pays </label>
+								<input
+									value="sample text"
+									matInput
+									type="text"
+									class="form-control"
+									placeholder=""
+								/>
+							</mat-form-field>
+						</div>
+						<div class="fv-plugins-message-container"></div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6">
+					<div class="form-group">
+						<div class="input-group date">
+							<mat-form-field class="example-full-width">
+								<label> Tel </label>
+								<input
+									value="sample text"
+									matInput
+									type="text"
+									class="form-control"
+									placeholder=""
+								/>
+							</mat-form-field>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="form-group fv-plugins-icon-container">
+						<mat-form-field class="example-full-width">
+							<label> Email </label>
+							<input
+								value="sample text"
+								matInput
+								type="text"
+								class="form-control"
+								placeholder=""
+							/>
+						</mat-form-field>
+						<div class="fv-plugins-message-container"></div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6">
+					<div class="form-group">
+						<div class="input-group date">
+							<mat-form-field class="example-full-width">
+								<label> Fax </label>
+								<input
+									matInput
+									type="text"
+									class="form-control"
+									placeholder=""
+								/>
+							</mat-form-field>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="hideDiv" *ngIf="isVisible == 0">
+			<div class="row">
+				<div class="col-md-6">
+					<div class="form-group fv-plugins-icon-container">
+						<mat-form-field class="example-full-width">
+							<label>Déligataire : </label>
+							<mat-select class="form-control">
+								<mat-option [value]="''"
+									>déligataire 1</mat-option
+								>
+								<mat-option [value]="''"
+									>déligataire 2</mat-option
+								>
+								<mat-option [value]="''"
+									>déligataire 3</mat-option
+								>
+							</mat-select>
+						</mat-form-field>
+						<div class="fv-plugins-message-container"></div>
+					</div>
+				</div>
+
+				<div class="col-md-6">
+					<div class="form-group fv-plugins-icon-container">
+						<mat-form-field class="example-full-width">
+							<label> SDL : </label>
+							<mat-select class="form-control">
+								<mat-option [value]="''">sdl 1</mat-option>
+								<mat-option [value]="''">sdl 2</mat-option>
+								<mat-option [value]="''">sdl 3</mat-option>
+							</mat-select>
+						</mat-form-field>
+						<div class="fv-plugins-message-container"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="kt-portlet__heads">
+			<div class="kt-portlet__head-label" align="right">
+				<button
+					mat-button
+					(click)="EtapeDernier()"
+					type="button"
+					class="btn btn-secondary btn-md btn-tall btn-wide kt-font-bold kt-font-transform-u"
+				>
+					<i class="la la-recycle"></i>
+					Retour
+				</button>
+				<button
+					mat-button
+					matStepperNext
+					type="button"
+					class="btn btn-success btn-md btn-tall btn-wide kt-font-bold kt-font-transform-u"
+				>
+					<i class="fa fa-plus-circle"></i>
+					Suivant
+				</button>
+			</div>
+		</div>
+	</mat-step>
+	<mat-step label="Etape 2">
+		<div class="row d-flex justify-content-center m-3">
+			<div class="col-2">
+				<h4>Défendresse</h4>
+			</div>
+			<div class="col-2">
+				<label>
+					<input
+						id="r1"
+						[value]="3"
+						[(ngModel)]="isVisible1"
+						name="isVisible1"
+						type="radio"
+						[checked]="isSelected1"
+					/>
+					Physique
+				</label>
+
+				<label class="ml-3">
+					<input
+						[value]="2"
+						[(ngModel)]="isVisible1"
+						name="isVisible1"
+						type="radio"
+						[checked]="!isSelected1"
+					/>
+					Moral
+				</label>
+			</div>
+		</div>
+
+		<div class="showDiv" *ngIf="isVisible1 == 3">
+			<div class="row">
+				<div class="col-md-6">
+					<div class="form-group fv-plugins-icon-container">
+						<mat-form-field class="example-full-width">
+							<label> Nom </label>
+							<input
+								matInput
+								type="text"
+								class="form-control"
+								placeholder=""
+							/>
+						</mat-form-field>
+						<div class="fv-plugins-message-container"></div>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="form-group fv-plugins-icon-container">
+						<mat-form-field class="example-full-width">
+							<label> Prénom </label>
+							<input
+								matInput
+								type="text"
+								class="form-control"
+								placeholder=""
+							/>
+						</mat-form-field>
+						<div class="fv-plugins-message-container"></div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6">
+					<div class="form-group fv-plugins-icon-container">
+						<mat-form-field class="example-full-width">
+							<label> CIN </label>
+							<input
+								matInput
+								type="text"
+								class="form-control"
+								placeholder=""
+							/>
+						</mat-form-field>
+						<div class="fv-plugins-message-container"></div>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="form-group fv-plugins-icon-container">
+						<mat-form-field class="example-full-width">
+							<label> Adresse </label>
+							<input
+								matInput
+								type="text"
+								class="form-control"
+								placeholder=""
+							/>
+						</mat-form-field>
+						<div class="fv-plugins-message-container"></div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6">
+					<div class="form-group fv-plugins-icon-container">
+						<mat-form-field class="example-full-width">
+							<label> Ville </label>
+							<input
+								matInput
+								type="text"
+								class="form-control"
+								placeholder=""
+							/>
+						</mat-form-field>
+						<div class="fv-plugins-message-container"></div>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="form-group fv-plugins-icon-container">
+						<div class="input-group date">
+							<mat-form-field class="example-full-width">
+								<label> Pays </label>
+								<input
+									matInput
+									type="text"
+									class="form-control"
+									placeholder=""
+								/>
+							</mat-form-field>
+						</div>
+						<div class="fv-plugins-message-container"></div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6">
+					<div class="form-group">
+						<div class="input-group date">
+							<mat-form-field class="example-full-width">
+								<label> Tel </label>
+								<input
+									matInput
+									type="text"
+									class="form-control"
+									placeholder=""
+								/>
+							</mat-form-field>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="form-group fv-plugins-icon-container">
+						<mat-form-field class="example-full-width">
+							<label> Email </label>
+							<input
+								matInput
+								type="text"
+								class="form-control"
+								placeholder=""
+							/>
+						</mat-form-field>
+						<div class="fv-plugins-message-container"></div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6">
+					<div class="form-group">
+						<div class="input-group date">
+							<mat-form-field class="example-full-width">
+								<label> Fax </label>
+								<input
+									matInput
+									type="text"
+									class="form-control"
+									placeholder=""
+								/>
+							</mat-form-field>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="hideDiv" *ngIf="isVisible1 == 2">
+			<div class="row">
+				<div class="col-md-6">
+					<div class="form-group fv-plugins-icon-container">
+						<mat-form-field class="example-full-width">
+							<label>Déligataire : </label>
+							<mat-select class="form-control">
+								<mat-option [value]="''"
+									>déligataire 1</mat-option
+								>
+								<mat-option [value]="''"
+									>déligataire 2</mat-option
+								>
+								<mat-option [value]="''"
+									>déligataire 3</mat-option
+								>
+							</mat-select>
+						</mat-form-field>
+						<div class="fv-plugins-message-container"></div>
+					</div>
+				</div>
+
+				<div class="col-md-6">
+					<div class="form-group fv-plugins-icon-container">
+						<mat-form-field class="example-full-width">
+							<label> SDL : </label>
+							<mat-select class="form-control">
+								<mat-option [value]="''">sdl 1</mat-option>
+								<mat-option [value]="''">sdl 2</mat-option>
+								<mat-option [value]="''">sdl 3</mat-option>
+							</mat-select>
+						</mat-form-field>
+						<div class="fv-plugins-message-container"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="kt-portlet__heads">
+			<div class="kt-portlet__head-label" align="right">
+				<button
+					mat-button
+					matStepperPrevious
+					type="button"
+					class="btn btn-secondary btn-md btn-tall btn-wide kt-font-bold kt-font-transform-u"
+				>
+					<i class="la la-recycle"></i>
+					Retour
+				</button>
+				<button
+					mat-button
+					matStepperNext
+					type="button"
+					class="btn btn-success btn-md btn-tall btn-wide kt-font-bold kt-font-transform-u"
+				>
+					<i class="fa fa-plus-circle"></i>
+					Suivant
+				</button>
+			</div>
+		</div>
+	</mat-step>
+	<mat-step label="Etape 3">
+		<div class="row">
+			<div class="col-md-6">
+				<div class="form-group fv-plugins-icon-container">
+					<mat-form-field class="example-full-width">
+						<label>Objet : </label>
+						<input
+							matInput
+							type="text"
+							class="form-control form-control-solid form-control-lg"
+							name="address1"
+						/>
+					</mat-form-field>
+					<div class="fv-plugins-message-container"></div>
+				</div>
+			</div>
+
+			<div class="col-md-6">
+				<div class="form-group fv-plugins-icon-container">
+					<mat-form-field class="example-full-width">
+						<label> Description courte : </label>
+						<input
+							matInput
+							type="text"
+							class="form-control form-control-solid form-control-lg"
+							name="address1"
+						/>
+					</mat-form-field>
+					<div class="fv-plugins-message-container"></div>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-6">
+				<div class="form-group fv-plugins-icon-container">
+					<mat-form-field class="example-full-width">
+						<label>Division concerné : </label>
+						<input
+							matInput
+							type="text"
+							class="form-control form-control-solid form-control-lg"
+							name="address1"
+						/>
+					</mat-form-field>
+					<div class="fv-plugins-message-container"></div>
+				</div>
+			</div>
+
+			<div class="col-md-6">
+				<div class="form-group fv-plugins-icon-container">
+					<mat-form-field class="example-full-width">
+						<label>Remarque : </label>
+						<input
+							matInput
+							type="text"
+							class="form-control form-control-solid form-control-lg"
+							name="address1"
+						/>
+					</mat-form-field>
+					<div class="fv-plugins-message-container"></div>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-12">
+				<div class="form-group fv-plugins-icon-container date">
+					<mat-form-field class="example-full-width">
+						<label>Description : </label>
+						<textarea
+							matInput
+							class="form-control"
+							id="floatingTextarea"
+						></textarea>
+					</mat-form-field>
+					<div class="fv-plugins-message-container"></div>
+				</div>
+			</div>
+		</div>
+		<div class="pb-5" data-wizard-type="step-content">
+			<h4 class="mb-10 font-weight-bold text-dark"></h4>
+			<div class="kt-portlet">
+				<div class="kt-portlet__head kt-bg-portlet-5">
+					<div class="kt-portlet__head-label">
+						<span class="kt-portlet__head-icon">
+							<i class="flaticon-attachment"></i>
+						</span>
+						&nbsp;
+						<h3 class="kt-portlet__head-title">
+							{{ "PAGES.GENERAL.ATTACHEMENT" | translate }}
+						</h3>
+					</div>
+				</div>
+				<div class="kt-portlet__body">
+					<div class="row">
+						<div class="col-md-6 show_port input-group">
+							<form
+								enctype="multipart/form-data"
+								method="POST"
+								style="
+									display: -webkit-inline-box;
+									margin-inline-start: 98px;
+								"
+							>
+								<label class="input-group-btn">
+									<span class="btn btn-info">
+										{{
+											"PAGES.ATTCHEMENTS.SELECT_FILE"
+												| translate
+										}}<input
+											type="file"
+											name="file"
+											formControlName="_file"
+											id="customFile"
+											style="display: none"
+											multiple
+										/>
+									</span>
+								</label>
+								<input
+									type="text"
+									class="form-control"
+									readonly
+								/>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="kt-portlet__heads">
+			<div class="kt-portlet__head-label" align="right">
+				<button
+					mat-button
+					matStepperPrevious
+					type="button"
+					class="btn btn-secondary btn-md btn-tall btn-wide kt-font-bold kt-font-transform-u"
+				>
+					<i class="la la-recycle"></i>
+					Retour
+				</button>
+				<button
+					mat-button
+					type="button"
+					class="btn btn-success btn-md btn-tall btn-wide kt-font-bold kt-font-transform-u"
+				>
+					<i class="icon la la-floppy-o"></i>
+					Enregistrer
+				</button>
+			</div>
+		</div>
+	</mat-step>
+</mat-horizontal-stepper>

@@ -1,0 +1,50 @@
+<!-- begin:: Header Mobile -->
+<div id="kt_header_mobile" class="kt-header-mobile">
+	<div class="kt-header-mobile__brand">
+		<a class="kt-header-mobile__logo" routerLink="/">
+			<img alt="logo" src="./assets/media/logos/logo-6-sm.png" />
+		</a>
+	</div>
+	<div class="kt-header__brand-nav">
+		<div ngbDropdown class="dropdown">
+			<button
+				class="btn btn-default dropdown-toggle"
+				id="ddlDashboard"
+				ngbDropdownToggle
+				type="button"
+			>
+				{{ "MENU.PRINCIPAL" | translate }}
+			</button>
+
+			<div
+				ngbDropdownMenu
+				class="dropdown-menu dropdown-menu-md"
+				aria-labelledby="ddlDashboard"
+			></div>
+		</div>
+	</div>
+	<div class="kt-header-mobile__toolbar">
+		<button
+			[hidden]="!asideDisplay"
+			class="kt-header-mobile__toggler kt-header-mobile__toggler--left"
+			id="kt_aside_mobile_toggler"
+		>
+			<span></span>
+		</button>
+		<button
+			class="kt-header-mobile__toolbar-toggler"
+			id="kt_header_mobile_toggler"
+		>
+			<span></span>
+		</button>
+		<button
+			ktToggle
+			[options]="toggleOptions"
+			class="kt-header-mobile__toolbar-topbar-toggler"
+			id="kt_header_mobile_topbar_toggler"
+		>
+			<i class="flaticon2-settings"></i>
+		</button>
+	</div>
+</div>
+<!-- end:: Header Mobile -->

@@ -1,0 +1,101 @@
+<div ngbDropdown placement="{{dropDir}}" *ngIf="user$ | async as _user"
+	class="kt-header__topbar-item kt-header__topbar-item--user">
+	<div ngbDropdownToggle class="kt-header__topbar-wrapper">
+		<div class="kt-header__topbar-user" [ngClass]="{'kt-header__topbar-icon': icon}">
+			<span class="kt-header__topbar-welcome kt-hidden-mobile" *ngIf="greeting">Hi,</span>
+			<span class="kt-header__topbar-username kt-hidden-mobile" *ngIf="greeting">{{_user.fullname}}</span>
+			<i *ngIf="icon" class="flaticon2-user-outline-symbol"></i>
+			<img *ngIf="avatar" alt="Pic" [attr.src]="_user.pic">
+			<span *ngIf="badge"
+				class="kt-badge kt-badge--username kt-badge--unified-success kt-badge--lg kt-badge--rounded kt-badge--bold">{{_user.fullname|firstLetter}}</span>
+		</div>
+	</div>
+	<div ngbDropdownMenu
+		class="dropdown-menu dropdown-menu-fit dropdown-menu-right dropdown-menu-anim dropdown-menu-top-unround dropdown-menu-xl">
+		<!--begin: Head -->
+		<div class="kt-user-card kt-user-card--skin-dark kt-notification-item-padding-x">
+			<div class="kt-user-card__avatar">
+				<img alt="Pic" [attr.src]="_user.pic" />
+				<span [hidden]="true" class="kt-badge kt-badge--lg kt-badge--rounded kt-badge--bold kt-font-success">
+					{{_user.fullname|firstLetter}}
+				</span>
+			</div>
+			<div class="kt-user-card__name">
+				{{_user.fullname}}
+				<div class="kt-user-card--skin-dark" style="
+				font-size: 0.95rem;
+				font-weight: initial;
+				color: #178be7;">
+					<!-- {{getDivisionById(_user.idDivision)}} -->
+				</div>
+			</div>
+
+		</div>
+		<!--end: Head -->
+
+		<!--begin: Navigation -->
+		<div class="kt-notification">
+			<!--begin: Navigation -->
+			<div class="kt-notification">
+				<a ngbDropdownItem (click)="personnelShow(_user.idPersonnel)" class="kt-notification__item">
+					<div class="kt-notification__item-icon">
+						<i class="flaticon2-calendar-3 kt-font-success"></i>
+					</div>
+					<div class="kt-notification__item-details">
+						<div class="kt-notification__item-title kt-font-bold">
+							{{ 'PAGES.GENERAL.MON_PROFILE' | translate }}
+						</div>
+
+					</div>
+				</a>
+				<a  ngbDropdownItem
+					(click)="personnelPjShow(_user.idPersonnel)" class="kt-notification__item">
+					<div class="kt-notification__item-icon">
+						<i class="flaticon-folder kt-font-info"></i>
+					</div>
+					<div class="kt-notification__item-details">
+						<div class="kt-notification__item-title kt-font-bold">
+							{{ 'PAGES.GENERAL.MES_DOCUMENTS' | translate }}
+						</div>
+
+					</div>
+				</a>
+				<!-- start::mes courriers -->
+				<a  ngbDropdownItem
+					(click)="courrierShow(_user.idPersonnel, _user.idDivision)" class="kt-notification__item">
+					<div class="kt-notification__item-icon">
+						<i class="flaticon2-mail kt-font-warning"></i>
+					</div>
+					<div class="kt-notification__item-details">
+						<div class="kt-notification__item-title kt-font-bold">
+							{{ 'PAGES.GENERAL.MES_COURRIERS' | translate }}
+						</div>
+					</div>
+				</a>
+				<!-- end::mes courriers -->
+
+				<!-- start::communication -->
+				<a  ngbDropdownItem (click)="communication()"
+					class="kt-notification__item">
+					<div class="kt-notification__item-icon">
+						<i class="flaticon2-chat-1 kt-font-danger"></i>
+					</div>
+					<div class="kt-notification__item-details">
+						<div class="kt-notification__item-title kt-font-bold">
+							{{ 'PAGES.GENERAL.ESPACE_COMMUNICATION' | translate }}
+						</div>
+					</div>
+				</a>
+				<!-- end::communication -->
+				<div class="kt-notification__custom">
+					<a (click)="logout()"
+						class="btn btn-label-primary btn-md btn-bold">{{ 'PAGES.GENERAL.DECONNEXION' | translate }}</a>
+
+					<a (click)="changePwd()" class="btn btn-label-warning btn-md btn-bold"
+						matTooltip="{{ 'PAGES.GENERAL.CHANGE_PASSWORD' | translate }}"><i class="fa fa-key"></i></a>
+				</div>
+			</div>
+
+			<!--end: Navigation -->
+		</div>
+	</div>

@@ -1,0 +1,601 @@
+<div class="kt-portlet">
+	<div class="kt-portlet__head">
+		<div class="kt-portlet__head-label">
+			<h2 class="kt-portlet__head-title">Liste de Pesee</h2>
+		</div>
+		<div class="kt-portlet__head-toolbar">
+			<div class="kt-portlet__head-wrapper">
+				<div class="kt-portlet__head-actions">
+					<a
+						href="javascript:; "
+						(click)="addPesee()"
+						class="btn btn-success btn-elevate btn-icon-sm"
+					>
+						<i class="la la-plus"></i>
+						Ajouter
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="example-header col-md-4">
+		<i class="flaticon-search-magnifier-interface-symbol text-dark"></i
+		>&nbsp;
+		<mat-form-field>
+			<input
+				matInput
+				(keyup)="applyFilter($event.target.value)"
+				placeholder="{{ 'PAGES.GENERAL.FILTER' | translate }}"
+			/>
+		</mat-form-field>
+	</div>
+
+	<nav ngbNav #nav="ngbNav" class="nav-pills">
+		<ng-container ngbNavItem>
+			<a ngbNavLink>An cours de validation</a>
+			<ng-template ngbNavContent>
+				<table
+					id="exportData"
+					mat-table
+					[dataSource]="dataSource"
+					class="mat-elevation-z8 w-100"
+					matSort
+				>
+					<ng-container matColumnDef="NUM">
+						<th
+							colspan="3"
+							mat-header-cell
+							*matHeaderCellDef
+							mat-sort-header
+						>
+							{{ "PAGES.PESEE.NUM" | translate }}
+						</th>
+						<td colspan="3" mat-cell *matCellDef="let row">
+							{{
+								row.NUM
+									? row.NUM.length > 40
+										? (row.NUM | slice: 0:17) + "..."
+										: row.NUM
+									: "-"
+							}}
+						</td>
+					</ng-container>
+					<ng-container matColumnDef="OPERATEUR">
+						<th
+							colspan="3"
+							mat-header-cell
+							*matHeaderCellDef
+							mat-sort-header
+						>
+							{{ "PAGES.PESEE.OPERATEUR" | translate }}
+						</th>
+						<td colspan="3" mat-cell *matCellDef="let row">
+							{{
+								row.OPERATEUR
+									? row.OPERATEUR.length > 40
+										? (row.OPERATEUR | slice: 0:17) + "..."
+										: row.OPERATEUR
+									: "-"
+							}}
+						</td>
+					</ng-container>
+					<ng-container matColumnDef="DATE_P">
+						<th
+							colspan="3"
+							mat-header-cell
+							*matHeaderCellDef
+							mat-sort-header
+						>
+							{{ "PAGES.PESEE.DATE_P" | translate }}
+						</th>
+						<td colspan="3" mat-cell *matCellDef="let row">
+							{{
+								row.DATE_P
+									? row.DATE_P.length > 40
+										? (row.DATE_P | slice: 0:17) + "..."
+										: row.DATE_P
+									: "-"
+							}}
+						</td>
+					</ng-container>
+					<ng-container matColumnDef="VEHICULE">
+						<th
+							colspan="3"
+							mat-header-cell
+							*matHeaderCellDef
+							mat-sort-header
+						>
+							{{ "PAGES.PESEE.VEHICULE" | translate }}
+						</th>
+						<td colspan="3" mat-cell *matCellDef="let row">
+							{{
+								row.VEHICULE
+									? row.VEHICULE.length > 40
+										? (row.VEHICULE | slice: 0:17) + "..."
+										: row.VEHICULE
+									: "-"
+							}}
+						</td>
+					</ng-container>
+					<ng-container matColumnDef="MONTANT_T_M">
+						<th
+							colspan="3"
+							mat-header-cell
+							*matHeaderCellDef
+							mat-sort-header
+						>
+							{{ "PAGES.PESEE.MONTANT_T_M" | translate }}
+						</th>
+						<td colspan="3" mat-cell *matCellDef="let row">
+							{{
+								row.MONTANT_T_M
+									? row.MONTANT_T_M.length > 40
+										? (row.MONTANT_T_M | slice: 0:17) +
+										  "..."
+										: row.MONTANT_T_M
+									: "-"
+							}}
+						</td>
+					</ng-container>
+					<ng-container matColumnDef="STATUT">
+						<th
+							colspan="3"
+							mat-header-cell
+							*matHeaderCellDef
+							mat-sort-header
+						>
+							{{ "PAGES.PESEE.STATUT" | translate }}
+						</th>
+						<td
+							colspan="3"
+							class="text-danger"
+							mat-cell
+							*matCellDef="let row"
+						>
+							{{
+								row.STATUT
+									? row.STATUT.length > 40
+										? (row.STATUT | slice: 0:17) + "..."
+										: row.STATUT
+									: "-"
+							}}
+						</td>
+					</ng-container>
+					<ng-container matColumnDef="actions">
+						<th
+							mat-header-cell
+							*matHeaderCellDef
+							mat-sort-header
+							class="action"
+						>
+							{{ "PAGES.GENERAL.ACTIONS" | translate }}
+						</th>
+						<td
+							mat-cell
+							*matCellDef="let row"
+							class="actionsBtn action"
+						>
+							<a
+								href="javascript:;"
+								(click)="Details()"
+								type="button"
+								class="btn btn-sm btn-clean btn-icon btn-success btn-icon-md btn_table_show"
+								matTooltip="{{
+									'PAGES.GENERAL.DETAILS' | translate
+								}}"
+							>
+								<i class="icon la la-search-plus"></i>
+							</a>
+							<a
+								href="javascript:;"
+								(click)="Recu()"
+								type="button"
+								routerLink="pages/pesee/show-pesee"
+								class="btn btn-sm btn-clean btn-icon btn-icon-md btn-outline-secondary"
+								matTooltip="Recu"
+							>
+								<i class="icon fa fa-file text-secondary"></i>
+							</a>
+						</td>
+					</ng-container>
+
+					<tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+					<tr
+						mat-row
+						*matRowDef="let row; columns: displayedColumns"
+					></tr>
+				</table>
+			</ng-template>
+		</ng-container>
+		<ng-container ngbNavItem>
+			<a ngbNavLink>Payee</a>
+			<ng-template ngbNavContent>
+				<table
+					id="exportData"
+					mat-table
+					[dataSource]="dataSource2"
+					class="mat-elevation-z8 w-100"
+					matSort
+				>
+					<ng-container matColumnDef="NUM">
+						<th
+							colspan="3"
+							mat-header-cell
+							*matHeaderCellDef
+							mat-sort-header
+						>
+							{{ "PAGES.PESEE.NUM" | translate }}
+						</th>
+						<td colspan="3" mat-cell *matCellDef="let row">
+							{{
+								row.NUM
+									? row.NUM.length > 40
+										? (row.NUM | slice: 0:17) + "..."
+										: row.NUM
+									: "-"
+							}}
+						</td>
+					</ng-container>
+					<ng-container matColumnDef="OPERATEUR">
+						<th
+							colspan="3"
+							mat-header-cell
+							*matHeaderCellDef
+							mat-sort-header
+						>
+							{{ "PAGES.PESEE.OPERATEUR" | translate }}
+						</th>
+						<td colspan="3" mat-cell *matCellDef="let row">
+							{{
+								row.OPERATEUR
+									? row.OPERATEUR.length > 40
+										? (row.OPERATEUR | slice: 0:17) + "..."
+										: row.OPERATEUR
+									: "-"
+							}}
+						</td>
+					</ng-container>
+					<ng-container matColumnDef="DATE_P">
+						<th
+							colspan="3"
+							mat-header-cell
+							*matHeaderCellDef
+							mat-sort-header
+						>
+							{{ "PAGES.PESEE.DATE_P" | translate }}
+						</th>
+						<td colspan="3" mat-cell *matCellDef="let row">
+							{{
+								row.DATE_P
+									? row.DATE_P.length > 40
+										? (row.DATE_P | slice: 0:17) + "..."
+										: row.DATE_P
+									: "-"
+							}}
+						</td>
+					</ng-container>
+					<ng-container matColumnDef="VEHICULE">
+						<th
+							colspan="3"
+							mat-header-cell
+							*matHeaderCellDef
+							mat-sort-header
+						>
+							{{ "PAGES.PESEE.VEHICULE" | translate }}
+						</th>
+						<td colspan="3" mat-cell *matCellDef="let row">
+							{{
+								row.VEHICULE
+									? row.VEHICULE.length > 40
+										? (row.VEHICULE | slice: 0:17) + "..."
+										: row.VEHICULE
+									: "-"
+							}}
+						</td>
+					</ng-container>
+					<ng-container matColumnDef="MONTANT_T_M">
+						<th
+							colspan="3"
+							mat-header-cell
+							*matHeaderCellDef
+							mat-sort-header
+						>
+							{{ "PAGES.PESEE.MONTANT_T_M" | translate }}
+						</th>
+						<td colspan="3" mat-cell *matCellDef="let row">
+							{{
+								row.MONTANT_T_M
+									? row.MONTANT_T_M.length > 40
+										? (row.MONTANT_T_M | slice: 0:17) +
+										  "..."
+										: row.MONTANT_T_M
+									: "-"
+							}}
+						</td>
+					</ng-container>
+					<ng-container matColumnDef="STATUT">
+						<th
+							colspan="3"
+							mat-header-cell
+							*matHeaderCellDef
+							mat-sort-header
+						>
+							{{ "PAGES.PESEE.STATUT" | translate }}
+						</th>
+						<td
+							colspan="3"
+							class="text-danger"
+							mat-cell
+							*matCellDef="let row"
+						>
+							{{
+								row.STATUT
+									? row.STATUT.length > 40
+										? (row.STATUT | slice: 0:17) + "..."
+										: row.STATUT
+									: "-"
+							}}
+						</td>
+					</ng-container>
+					<<ng-container matColumnDef="actions">
+						<th
+							mat-header-cell
+							*matHeaderCellDef
+							mat-sort-header
+							class="action"
+						>
+						{{ "PAGES.GENERAL.ACTIONS" | translate }}
+						</th>
+						<td
+							mat-cell
+							*matCellDef="let row"
+							class="actionsBtn action"
+						>
+							<a
+								href="javascript:;"
+								(click)="Details()"
+								type="button"
+								routerLink="pages/pesee/show-pesee"
+								class="btn btn-sm btn-clean btn-icon btn-success btn-icon-md btn_table_show"
+								matTooltip="{{
+									'PAGES.GENERAL.DETAILS' | translate
+								}}"
+							>
+								<i class="icon la la-search-plus"></i>
+							</a>
+							<a
+								href="javascript:;"
+								(click)="Recu()"
+								type="button"
+								routerLink="pages/pesee/show-pesee"
+								class="btn btn-sm btn-clean btn-icon btn-icon-md btn-outline-secondary"
+								matTooltip="{{
+									'PAGES.GENERAL.RECU' | translate
+								}}"
+							>
+								<i class="icon fa fa-file text-secondary"></i>
+							</a>
+						</td>
+					</ng-container>
+
+					<tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+					<tr
+						mat-row
+						*matRowDef="let row; columns: displayedColumns"
+					></tr>
+				</table>
+			</ng-template>
+		</ng-container>
+		<ng-container ngbNavItem>
+			<a ngbNavLink>En cours de payemen</a>
+			<ng-template ngbNavContent>
+				<table
+					id="exportData"
+					mat-table
+					[dataSource]="dataSource3"
+					class="mat-elevation-z8 w-100"
+					matSort
+				>
+					<ng-container matColumnDef="NUM">
+						<th
+							colspan="3"
+							mat-header-cell
+							*matHeaderCellDef
+							mat-sort-header
+						>
+							{{ "PAGES.PESEE.NUM" | translate }}
+						</th>
+						<td colspan="3" mat-cell *matCellDef="let row">
+							{{
+								row.NUM
+									? row.NUM.length > 40
+										? (row.NUM | slice: 0:17) + "..."
+										: row.NUM
+									: "-"
+							}}
+						</td>
+					</ng-container>
+					<ng-container matColumnDef="OPERATEUR">
+						<th
+							colspan="3"
+							mat-header-cell
+							*matHeaderCellDef
+							mat-sort-header
+						>
+							{{ "PAGES.PESEE.OPERATEUR" | translate }}
+						</th>
+						<td colspan="3" mat-cell *matCellDef="let row">
+							{{
+								row.OPERATEUR
+									? row.OPERATEUR.length > 40
+										? (row.OPERATEUR | slice: 0:17) + "..."
+										: row.OPERATEUR
+									: "-"
+							}}
+						</td>
+					</ng-container>
+					<ng-container matColumnDef="DATE_P">
+						<th
+							colspan="3"
+							mat-header-cell
+							*matHeaderCellDef
+							mat-sort-header
+						>
+							{{ "PAGES.PESEE.DATE_P" | translate }}
+						</th>
+						<td colspan="3" mat-cell *matCellDef="let row">
+							{{
+								row.DATE_P
+									? row.DATE_P.length > 40
+										? (row.DATE_P | slice: 0:17) + "..."
+										: row.DATE_P
+									: "-"
+							}}
+						</td>
+					</ng-container>
+					<ng-container matColumnDef="VEHICULE">
+						<th
+							colspan="3"
+							mat-header-cell
+							*matHeaderCellDef
+							mat-sort-header
+						>
+							{{ "PAGES.PESEE.VEHICULE" | translate }}
+						</th>
+						<td colspan="3" mat-cell *matCellDef="let row">
+							{{
+								row.VEHICULE
+									? row.VEHICULE.length > 40
+										? (row.VEHICULE | slice: 0:17) + "..."
+										: row.VEHICULE
+									: "-"
+							}}
+						</td>
+					</ng-container>
+					<ng-container matColumnDef="MONTANT_T_M">
+						<th
+							colspan="3"
+							mat-header-cell
+							*matHeaderCellDef
+							mat-sort-header
+						>
+							{{ "PAGES.PESEE.MONTANT_T_M" | translate }}
+						</th>
+						<td colspan="3" mat-cell *matCellDef="let row">
+							{{
+								row.MONTANT_T_M
+									? row.MONTANT_T_M.length > 40
+										? (row.MONTANT_T_M | slice: 0:17) +
+										  "..."
+										: row.MONTANT_T_M
+									: "-"
+							}}
+						</td>
+					</ng-container>
+					<ng-container matColumnDef="STATUT">
+						<th
+							colspan="3"
+							mat-header-cell
+							*matHeaderCellDef
+							mat-sort-header
+						>
+							{{ "PAGES.PESEE.STATUT" | translate }}
+						</th>
+						<td
+							colspan="3"
+							class="text-danger"
+							mat-cell
+							*matCellDef="let row"
+						>
+							{{
+								row.STATUT
+									? row.STATUT.length > 40
+										? (row.STATUT | slice: 0:17) + "..."
+										: row.STATUT
+									: "-"
+							}}
+						</td>
+					</ng-container>
+					<ng-container matColumnDef="actions">
+						<th
+							mat-header-cell
+							*matHeaderCellDef
+							mat-sort-header
+							class="action"
+						>
+						{{ "PAGES.GENERAL.ACTIONS" | translate }}
+						</th>
+						<td
+							mat-cell
+							*matCellDef="let row"
+							class="actionsBtn action"
+						>
+							<a
+								href="javascript:;"
+								(click)="Details()"
+								type="button"
+								class="btn btn-sm btn-clean btn-icon btn-success btn-icon-md btn_table_show"
+								matTooltip="{{
+									'PAGES.GENERAL.DETAILS' | translate
+								}}"
+							>
+								<i class="icon la la-search-plus"></i>
+							</a>
+							<a
+								href="javascript:;"
+								(click)="Recu()"
+								type="button"
+								class="btn btn-sm btn-clean btn-icon btn-icon-md btn-outline-secondary"
+								matTooltip="Recu"
+							>
+								<i class="icon fa fa-file text-secondary"></i>
+							</a>
+						</td>
+					</ng-container>
+
+					<tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+					<tr
+						mat-row
+						*matRowDef="let row; columns: displayedColumns"
+					></tr>
+				</table>
+			</ng-template>
+		</ng-container>
+	</nav>
+
+	<div [ngbNavOutlet]="nav" class="mt-2"></div>
+
+	<div
+		*ngIf="dataSource.data.length == 0 && isLoading == false"
+		style="
+			display: flex;
+			justify-content: center;
+			padding: 2%;
+			color: orangered;
+		"
+	>
+		{{ "PAGES.GENERAL.NO_RECORDS" | translate }}
+	</div>
+	<mat-paginator
+		*ngIf="dataSource != undefined && dataSource.data != undefined"
+		[length]="dataSource.data.length"
+		[pageSize]="5"
+		[pageIndex]="0"
+		[pageSizeOptions]="[5, 10, 50]"
+		showFirstLastButtons
+	></mat-paginator>
+
+	<!-- <div class="text-right justify-content-center mt-5 pt-10">
+		<div>
+			<a
+				href="javascript:; "
+				(click)="EtapeDernier()"
+				type="button"
+				class="btn btn-secondary btn-md btn-tall btn-wide kt-font-bold kt-font-transform-u"
+			>
+				<i class="la la-recycle"></i>
+				Retour
+			</a>
+		</div>
+	</div> -->
+</div>

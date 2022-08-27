@@ -1,0 +1,11 @@
+<div [ngClass]="'kt-error-v1'" [ngStyle]="{'background-image': 'url('+image+')'}"
+	class="kt-grid__item kt-grid__item--fluid kt-grid">
+
+	<ng-container>
+		<div class="kt-error-v1__container">
+			<h1 class="kt-error-v1__number">{{code}}</h1>
+			<p class="kt-error-v1__desc" [innerHTML]="desc"></p>
+		</div>
+	</ng-container>
+
+</div>
