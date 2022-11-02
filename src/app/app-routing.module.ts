@@ -19,16 +19,6 @@ const routes: Routes = [
 		component: BaseComponent,
 		children: [
 
-			// {
-			// 	path: "audiences",
-			// 	loadChildren: () =>
-			// 		import("./views/pages/audiences/audiences.module").then((m) => m.AudiencesModule)
-			// },
-			// {
-			// 	path: "parametrages",
-			// 	loadChildren: () =>
-			// 		import("./views/pages/parametrages/parametrages.module").then((m) => m.ParametragesModule)
-			// },
 			{
 				path: "Marche",
 				loadChildren: () =>

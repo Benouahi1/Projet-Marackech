@@ -49,12 +49,12 @@ export class MenuHorizontalService {
 		this.selectedIndex = index;
 
 		switch(this.selectedIndex) {
-		// ------------------- MENU ADIL -------------------
-		case (1): {
+		//------------------- MENU BENOUAHI -------------------
+		case 1: {
 			this.menu = "header.items";
 			localStorage.setItem("menu", "header.items");
 			this.loadMenu();
-			this.router.navigate(["pages/Projet/list-projet"]);
+			this.router.navigate(["pages/Programme/list-programme"]);
 			break;
 		}
 
@@ -72,7 +72,6 @@ export class MenuHorizontalService {
 			this.router.navigate(["pages/pesee/list-pesees"]);
 			break;
 		}
-		// ------------------- MENU RACHID -------------------
 		case 4: {
 			this.menu = "header_bureau_ordre.items";
 			localStorage.setItem("menu", "header_bureau_ordre.items");
@@ -80,6 +79,8 @@ export class MenuHorizontalService {
 			this.router.navigate([""]);
 			break;
 		}
+		// ------------------- MENU RACHID -------------------
+
 		case (5): {
 			this.menu = "header_insertion_publiciataire.items";
 			localStorage.setItem("menu", "header_insertion_publiciataire.items");
@@ -137,22 +138,10 @@ export class MenuHorizontalService {
 			this.router.navigate(["affaires-conseil"]);
 			break;
 		}
-		case 13: {
-			this.menu = "header_marches.items";
-			localStorage.setItem("menu", "header_marches.items");
-			this.loadMenu();
-			this.router.navigate(["marches"]);
-			break;
-		}
+
 
 		// ------------------- MENU USERS -------------------
-		case 20: {
-			this.menu = "header.items";
-			localStorage.setItem("menu", "header.items");
-			this.loadMenu();
-			this.router.navigate(["user"]);
-			break;
-		}
+
 
 			default: {
 			   //statements;
